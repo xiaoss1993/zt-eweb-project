@@ -1,0 +1,33 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /api
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 1000
+      min-spare: 100
+    accept-count: 1000
+    max-connections: 10000
+
+spring:
+  profiles:
+    active: @spring.active@
+  application:
+    name: zt-eweb-lite
+  jackson:
+    date-format: yyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  servlet:
+    multipart:
+      max-file-size: "100MB"
+      max-request-size: "1000MB"
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: ${application.mysql.driverClassName}
+    username: ${application.mysql.username}
+    password: ${application.mysql.password}
+    url: ${application.mysql.url}
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

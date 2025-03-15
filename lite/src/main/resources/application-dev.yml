@@ -1,0 +1,54 @@
+application:
+  developMode: true
+  mysql:
+    ip: 127.0.0.1
+    port: 3306
+    driverClassName: com.mysql.cj.jdbc.Driver
+    database: spring_boot_plus
+    username: root
+    password: 123456
+    url: jdbc:mysql://${application.mysql.ip}:${application.mysql.port}/${application.mysql.database}?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+
+# mybaits-plus配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*/*Mapper.xml
+  global-config:
+    banner: false
+    db-config:
+      id-type: input
+      insert-strategy: NOT_NULL
+      update-strategy: NOT_NULL
+      table-underline: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    # 打印SQL语句和结果集，本地开发环境可开启，线上注释掉
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.zt.eweb.modular.rbac.dal
+
+logging:
+  level:
+    ROOT: INFO
+    com.zt.eweb: ${logging.level.ROOT}
+  file:
+    path: logs
+    info-file-name: info
+    error-file-name: error
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: ["configprops", "env", "health", "info", "threaddump", "logfile" ]
+  endpoint:
+    health:
+      show-details: when_authorized
+  info:
+    git:
+      mode: full
+  health:
+    mail:
+      enabled: false # When using the MailService, configure an SMTP server and set this to true
+  metrics:
+    enabled: false # http://micrometer.io/ is disabled by default, as we use http://metrics.dropwizard.io/ instead
