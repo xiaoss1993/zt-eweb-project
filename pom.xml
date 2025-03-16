@@ -9,7 +9,6 @@
         <artifactId>zt-eweb-parent</artifactId>
         <relativePath/>
     </parent>
-    <groupId>com.zt.eweb</groupId>
     <artifactId>zt-eweb-project</artifactId>
     <version>1.1.0</version>
     <description>
@@ -17,6 +16,7 @@
     </description>
     <modules>
         <module>framework</module>
+        <module>lite</module>
     </modules>
     <packaging>pom</packaging>
 

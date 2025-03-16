@@ -13,7 +13,9 @@
     <name>framework</name>
     <url>http://maven.apache.org</url>
     <modules>
+        <module>zt-eweb-sdk</module>
         <module>zt-eweb-parent</module>
+        <module>zt-eweb-dependencies</module>
     </modules>
 
     <properties>
