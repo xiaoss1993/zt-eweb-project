@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <!-- 引用 Spring Boot 的 logback 基础配置 -->
-    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
     <!-- 文件路径 -->
-    <springProperty name="LOG_PATH" source="logging.file.path" defaultValue="logs" />
+    <springProperty name="LOG_PATH" source="logging.file.path" defaultValue="logs"/>
     <!-- 日志文件名称 -->
-    <springProperty name="INFO_FILE_NAME" source="logging.file.info-file-name" defaultValue="info" />
-    <springProperty name="ERROR_FILE_NAME" source="logging.file.error-file-name" defaultValue="error" />
+    <springProperty name="INFO_FILE_NAME" source="logging.file.info-file-name" defaultValue="info"/>
+    <springProperty name="ERROR_FILE_NAME" source="logging.file.error-file-name" defaultValue="error"/>
 
     <!-- 单个文件最大大小 -->
     <property name="MAX_FILE_SIZE" value="10MB"/>
@@ -14,22 +12,26 @@
     <property name="MAX_HISTORY" value="30"/>
 
     <!-- 彩色日志 -->
-    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
-    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
-    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex"
+                    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx"
+                    converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
 
     <!-- 控制台日志样式 -->
-    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint}%clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(%-26.26logger:%L{26}){cyan}[%X{traceId}][%X{ip}] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <property name="CONSOLE_LOG_PATTERN"
+              value="${CONSOLE_LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint}%clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(%-26.26logger:%L{26}){cyan}[%X{traceId}][%X{ip}] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
     <!-- 文件日志样式 -->
-    <property name="FILE_LOG_PATTERN" value="${FILE_LOG_PATTERN:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}${LOG_LEVEL_PATTERN:-%5p} [%t] %-40.40logger{39}:%L [%X{traceId}][%X{ip}] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <property name="FILE_LOG_PATTERN"
+              value="${FILE_LOG_PATTERN:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}${LOG_LEVEL_PATTERN:-%5p} [%t] %-40.40logger{39}:%L [%X{traceId}][%X{ip}] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
     <!-- 禁用logback自身日志输出 -->
-    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
 
     <!-- 控制台 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${CONSOLE_LOG_PATTERN}</pattern>
         </encoder>
     </appender>
@@ -57,8 +59,9 @@
 
     <!-- 错误日志文件 -->
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <encoder>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
         </encoder>
         <file>${LOG_PATH}/${ERROR_FILE_NAME}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -79,34 +82,18 @@
         <discardingThreshold>0</discardingThreshold>
         <!-- 更改默认的队列的深度，该值会影响性能。默认值为 256 -->
         <queueSize>1024</queueSize>
-        <appender-ref ref ="FILE"/>
+        <appender-ref ref="FILE"/>
     </appender>
     <appender name="ASYNC_ERROR_FILE" class="ch.qos.logback.classic.AsyncAppender">
         <discardingThreshold>0</discardingThreshold>
         <queueSize>1024</queueSize>
-        <appender-ref ref ="ERROR_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
     </appender>
 
     <root level="INFO">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="ASYNC_FILE" />
-        <appender-ref ref="ASYNC_ERROR_FILE" />
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC_FILE"/>
+        <appender-ref ref="ASYNC_ERROR_FILE"/>
     </root>
-    <!-- 本地环境 -->
-    <springProfile name="local">
-        <root level="INFO">
-            <appender-ref ref="CONSOLE" />
-            <appender-ref ref="ASYNC_FILE" />
-            <appender-ref ref="ASYNC_ERROR_FILE" />
-        </root>
-    </springProfile>
-    <!-- 其它环境 -->
-    <springProfile name="dev,test,stage,prod,default">
-        <root level="INFO">
-            <appender-ref ref="CONSOLE" />
-            <appender-ref ref="ASYNC_FILE" />
-            <appender-ref ref="ASYNC_ERROR_FILE" />
-        </root>
-    </springProfile>
 
 </configuration>

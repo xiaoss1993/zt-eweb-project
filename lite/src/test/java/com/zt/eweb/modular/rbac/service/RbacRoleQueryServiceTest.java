@@ -3,11 +3,17 @@ package com.zt.eweb.modular.rbac.service;
 import com.wujiuye.flow.FlowHelper;
 import com.wujiuye.flow.FlowType;
 import com.wujiuye.flow.Flower;
+import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import lombok.extern.slf4j.Slf4j;
+import org.anyline.entity.DataSet;
+import org.anyline.service.AnylineService;
 import org.junit.jupiter.api.*;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 /**
  * 模块名 :
@@ -32,6 +38,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 class RbacRoleQueryServiceTest {
     @Autowired
     private RbacRoleQueryService    rbacRoleQueryService;
+    @Autowired
+    private JdbcTemplate    jdbcTemplate;
+
+    @Autowired
+    protected AnylineService service;
 
     @BeforeEach
     void setUp() {
@@ -42,8 +53,12 @@ class RbacRoleQueryServiceTest {
     @Order(1)
     @DisplayName("分页查询角色列表")
     void testQueryRolePage() {
+        List<RbacRole> rbacRoles = rbacRoleQueryService.queryRolePage(null);
 
-        rbacRoleQueryService.queryRolePage(null);
+        jdbcTemplate.execute("select * from sys_user");
+
+        DataSet set = service.querys("sys_menu");
+
     }
     private FlowHelper flowHelper = new FlowHelper(FlowType.Hour);
 

@@ -89,7 +89,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <dependency>
+                <groupId>org.anyline</groupId>
+                <artifactId>anyline-dependency</artifactId>
+                <version>8.7.2-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -100,13 +106,6 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>1.2.24</version>
             </dependency>
-
-            <dependency>
-                <groupId>io.github.joker-pper</groupId>
-                <artifactId>p6spy-starter</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -146,7 +145,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>32.1.3-jre</version>
+                <version>${guava.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>

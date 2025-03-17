@@ -1,5 +1,6 @@
 package com.zt.eweb.modular.rbac.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
@@ -32,6 +33,8 @@ public class RbacRoleQueryServiceImpl implements RbacRoleQueryService {
     private RbacRoleMapper  roleMapper;
     @Override
     public List<RbacRole> queryRolePage(RbacRoleQuery roleQuery) {
-        return roleMapper.selectList(Wrappers.query());
+        QueryWrapper<RbacRole> query = Wrappers.query();
+        query.lambda().eq(RbacRole::getCode,"admin");
+        return roleMapper.selectList(query);
     }
 }

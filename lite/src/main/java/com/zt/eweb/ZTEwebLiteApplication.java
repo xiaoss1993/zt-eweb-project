@@ -1,5 +1,6 @@
 package com.zt.eweb;
 
+import org.anyline.service.AnylineService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,5 +27,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ZTEwebLiteApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(ZTEwebLiteApplication.class, args);
+        //这里可以验证一下 service 有没有成功注入
+        AnylineService service = context.getBean(AnylineService.class);
     }
 }
