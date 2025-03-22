@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 模块名 :
  * 文件名 :    RbacRoleMapper
@@ -23,4 +26,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface RbacRoleMapper extends BaseMapper<RbacRole> {
+
+    List<Map<String,Object>> selectRoleView();
 }

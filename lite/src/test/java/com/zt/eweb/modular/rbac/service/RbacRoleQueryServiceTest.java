@@ -4,6 +4,7 @@ import com.wujiuye.flow.FlowHelper;
 import com.wujiuye.flow.FlowType;
 import com.wujiuye.flow.Flower;
 import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
+import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.anyline.entity.DataSet;
 import org.anyline.service.AnylineService;
@@ -39,6 +40,8 @@ class RbacRoleQueryServiceTest {
     @Autowired
     private RbacRoleQueryService    rbacRoleQueryService;
     @Autowired
+    private RbacRoleMapper      roleMapper;
+    @Autowired
     private JdbcTemplate    jdbcTemplate;
 
     @Autowired
@@ -57,8 +60,17 @@ class RbacRoleQueryServiceTest {
 
         jdbcTemplate.execute("select * from sys_user");
 
-        DataSet set = service.querys("sys_menu");
+        DataSet set = service.querys("sys_menu");;
 
+        RbacRole    role = new RbacRole();
+        role.setName("新增角色");
+        role.setCode("cs");
+
+        roleMapper.insert(role);
+
+        roleMapper.deleteById(role);
+
+        roleMapper.selectById(role);
     }
     private FlowHelper flowHelper = new FlowHelper(FlowType.Hour);
 
@@ -74,6 +86,14 @@ class RbacRoleQueryServiceTest {
         System.out.println("平均请求成功数(每毫秒):"+flower.successAvg());
         System.out.println("平均请求异常数(每毫秒):"+flower.exceptionAvg());
         System.out.println();
+    }
+    @Test
+    public void testInt(){
+        int a =1000,b=1000;
+        System.out.println(a==b);
+        Integer  c = 1000;
+        Integer  d = 1000;
+        System.out.println(c.intValue() == d.intValue());
     }
 }
 

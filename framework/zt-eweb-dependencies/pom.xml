@@ -26,7 +26,7 @@
         <spring.cloud.alibaba.version>2021.0.6.2</spring.cloud.alibaba.version>
         <springdoc.version>1.7.0</springdoc.version>
         <knife4j.version>4.5.0</knife4j.version>
-
+        <feilong-spring.version>5.1.1</feilong-spring.version>
         <reflections.version>0.10.2</reflections.version>
 
         <!-- Test 测试相关 -->
@@ -81,6 +81,16 @@
                 <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ifeilong</groupId>
+                <artifactId>feilong-spring</artifactId>
+                <version>${feilong-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ifeilong</groupId>
+                <artifactId>feilong</artifactId>
+                <version>4.3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>

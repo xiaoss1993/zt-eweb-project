@@ -40,7 +40,7 @@ public class MybatisPlusConfig {
         PaginationInnerInterceptor  paginationInnerInterceptor  = new PaginationInnerInterceptor();
         DataChangeRecorderInnerInterceptor  dataChangeRecorderInnerInterceptor = new DataChangeRecorderInnerInterceptor();
         interceptor.addInnerInterceptor(blockAttackInnerInterceptor);
-        interceptor.addInnerInterceptor(illegalSQLInnerInterceptor);
+       // interceptor.addInnerInterceptor(illegalSQLInnerInterceptor);
         interceptor.addInnerInterceptor(paginationInnerInterceptor);
         interceptor.addInnerInterceptor(dataChangeRecorderInnerInterceptor);
         return interceptor;

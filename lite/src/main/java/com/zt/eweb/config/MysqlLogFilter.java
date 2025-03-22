@@ -26,10 +26,12 @@ public class MysqlLogFilter extends FilterEventAdapter {
 
 
     protected void statementExecuteUpdateBefore(StatementProxy statement, String sql) {
+        showLog("statementExecuteUpdateBefore " +sql);
+
     }
 
     protected void statementExecuteUpdateAfter(StatementProxy statement, String sql, int updateCount) {
-        showLog(sql);
+        showLog("statementExecuteUpdateAfter" + sql);
     }
 
     protected void statementExecuteQueryBefore(StatementProxy statement, String sql) {
@@ -48,7 +50,6 @@ public class MysqlLogFilter extends FilterEventAdapter {
 
     protected void statementExecuteAfter(StatementProxy statement, String sql, boolean result) {
         showLog("statementExecuteAfter " +sql);
-
     }
 
     public void showLog(String sql){
