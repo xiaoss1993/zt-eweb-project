@@ -16,6 +16,8 @@
         <module>zt-eweb-sdk</module>
         <module>zt-eweb-parent</module>
         <module>zt-eweb-dependencies</module>
+      <module>zt-eweb-mybatis</module>
+      <module>zt-eweb-commons</module>
     </modules>
 
     <properties>

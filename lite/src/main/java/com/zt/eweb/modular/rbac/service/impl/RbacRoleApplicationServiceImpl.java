@@ -3,9 +3,8 @@ package com.zt.eweb.modular.rbac.service.impl;
 import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import com.zt.eweb.modular.rbac.service.RbacRoleApplicationService;
-import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 /**
  * 模块名 :
@@ -27,7 +26,8 @@ import javax.annotation.Resource;
 public class RbacRoleApplicationServiceImpl implements RbacRoleApplicationService {
     @Resource
     private RbacRoleMapper roleMapper;
-    @Override
+
+  @Override
     public  RbacRole  createRoleDefault(RbacRole role) {
         roleMapper.insert(role);
         return role;

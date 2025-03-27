@@ -2,7 +2,6 @@ package com.zt.eweb.modular.rbac.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.feilong.context.log.UseTimeLogable;
 import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import com.zt.eweb.modular.rbac.dal.query.RbacRoleQuery;
@@ -28,7 +27,7 @@ import org.springframework.stereotype.Service;
  * ----------------------------------------------------------------
  */
 @Service
-public class RbacRoleQueryServiceImpl implements RbacRoleQueryService, UseTimeLogable {
+public class RbacRoleQueryServiceImpl implements RbacRoleQueryService {
     @Resource
     private RbacRoleMapper  roleMapper;
 

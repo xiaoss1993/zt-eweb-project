@@ -16,6 +16,7 @@
     </description>
     <modules>
         <module>framework</module>
+      <module>modulars</module>
         <module>lite</module>
     </modules>
     <packaging>pom</packaging>

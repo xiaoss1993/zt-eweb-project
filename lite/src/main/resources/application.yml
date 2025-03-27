@@ -13,7 +13,9 @@ spring:
     active: @spring.active@
   application:
     name: zt-eweb-lite
-    # Jackson 配置项
+  aop:
+    auto: true
+  # Jackson 配置项
   jackson:
     date-format: yyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai

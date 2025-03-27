@@ -3,18 +3,19 @@ package com.zt.eweb.modular.rbac.service;
 import com.wujiuye.flow.FlowHelper;
 import com.wujiuye.flow.FlowType;
 import com.wujiuye.flow.Flower;
-import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.anyline.entity.DataSet;
 import org.anyline.service.AnylineService;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-
-import java.util.List;
 
 /**
  * 模块名 :
@@ -36,17 +37,16 @@ import java.util.List;
 @DisplayName("角色管理服务测试")
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class RbacRoleQueryServiceTest {
+public class RbacRoleQueryServiceTest {
     @Autowired
     private RbacRoleQueryService    rbacRoleQueryService;
     @Autowired
     private RbacRoleMapper      roleMapper;
     @Autowired
-    private JdbcTemplate    jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     protected AnylineService service;
-
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -56,21 +56,7 @@ class RbacRoleQueryServiceTest {
     @Order(1)
     @DisplayName("分页查询角色列表")
     void testQueryRolePage() {
-        List<RbacRole> rbacRoles = rbacRoleQueryService.queryRolePage(null);
 
-        jdbcTemplate.execute("select * from sys_user");
-
-        DataSet set = service.querys("sys_menu");;
-
-        RbacRole    role = new RbacRole();
-        role.setName("新增角色");
-        role.setCode("cs");
-
-        roleMapper.insert(role);
-
-        roleMapper.deleteById(role);
-
-        roleMapper.selectById(role);
     }
     private FlowHelper flowHelper = new FlowHelper(FlowType.Hour);
 

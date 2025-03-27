@@ -22,12 +22,15 @@ import org.springframework.context.ConfigurableApplicationContext;
  * 2025/3/15      V1.0.0  xiaoss   创建
  * ----------------------------------------------------------------
  */
+
 @SpringBootApplication
-@MapperScan(basePackages = "com.zt.eweb.modular.**.dal")
+@MapperScan(basePackages = "com.zt.eweb.modular.**.mapper")
 public class ZTEwebLiteApplication {
-    public static void main(String[] args) {
+
+  public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(ZTEwebLiteApplication.class, args);
         //这里可以验证一下 service 有没有成功注入
         AnylineService service = context.getBean(AnylineService.class);
     }
+
 }

@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * 模块名 :
  * 文件名 :
@@ -35,9 +32,6 @@ public class MetaRoleController {
 
     @GetMapping("/list")
     public JSONObject   list(){
-        List<Map<String, Object>> roleView = roleMapper.selectRoleView();
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("role",roleView);
-        return jsonObject;
+      return null;
     }
 }
