@@ -16,7 +16,6 @@
     </description>
     <modules>
         <module>framework</module>
-      <module>modulars</module>
         <module>lite</module>
         <module>modulars</module>
     </modules>
