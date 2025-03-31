@@ -1,12 +1,13 @@
 
 package com.zt.eweb.framework.mybatis.core.binding.binder.remote;
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * 远程绑定DTO定义

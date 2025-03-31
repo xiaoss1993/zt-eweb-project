@@ -7,10 +7,11 @@ import com.zt.eweb.framework.mybatis.core.binding.cache.BindingCacheManager;
 import com.zt.eweb.framework.mybatis.core.util.ContextHolder;
 import com.zt.eweb.framework.mybatis.core.util.S;
 import com.zt.eweb.framework.mybatis.core.util.V;
-import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.core.annotation.AnnotationUtils;
+
+import java.io.Serializable;
 
 /**
  * Entity相关信息缓存

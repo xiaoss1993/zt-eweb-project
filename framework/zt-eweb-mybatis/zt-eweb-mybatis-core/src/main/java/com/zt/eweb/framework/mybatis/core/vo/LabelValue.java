@@ -2,11 +2,12 @@
 package com.zt.eweb.framework.mybatis.core.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.io.Serializable;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * LabelValue键值对形式的VO（用于构建显示名Name-存储值Value形式的结果）

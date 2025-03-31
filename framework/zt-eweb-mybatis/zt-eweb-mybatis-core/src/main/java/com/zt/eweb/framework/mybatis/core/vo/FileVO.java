@@ -15,10 +15,11 @@
  */
 package com.zt.eweb.framework.mybatis.core.vo;
 
-import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * 通用文件VO

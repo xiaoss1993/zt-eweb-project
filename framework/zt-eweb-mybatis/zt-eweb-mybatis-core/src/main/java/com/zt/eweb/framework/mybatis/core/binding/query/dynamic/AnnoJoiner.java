@@ -7,11 +7,12 @@ import com.zt.eweb.framework.mybatis.core.binding.query.BindQuery;
 import com.zt.eweb.framework.mybatis.core.binding.query.Comparison;
 import com.zt.eweb.framework.mybatis.core.util.S;
 import com.zt.eweb.framework.mybatis.core.util.V;
-import java.io.Serializable;
-import java.lang.reflect.Field;
-import javax.lang.model.type.NullType;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.lang.model.type.NullType;
+import java.io.Serializable;
+import java.lang.reflect.Field;
 
 /**
  * BindQuery注解连接器

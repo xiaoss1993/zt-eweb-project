@@ -5,20 +5,13 @@ import com.zt.eweb.framework.mybatis.core.binding.annotation.BindField;
 import com.zt.eweb.framework.mybatis.core.binding.binder.remote.RemoteBindingManager;
 import com.zt.eweb.framework.mybatis.core.config.Cons;
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
-import com.zt.eweb.framework.mybatis.core.util.BeanUtils;
-import com.zt.eweb.framework.mybatis.core.util.IGetter;
-import com.zt.eweb.framework.mybatis.core.util.ISetter;
-import com.zt.eweb.framework.mybatis.core.util.S;
-import com.zt.eweb.framework.mybatis.core.util.V;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import com.zt.eweb.framework.mybatis.core.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanWrapper;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 关联字段绑定

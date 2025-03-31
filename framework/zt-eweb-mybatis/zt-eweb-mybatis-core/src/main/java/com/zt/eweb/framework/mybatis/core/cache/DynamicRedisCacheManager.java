@@ -16,9 +16,6 @@
 package com.zt.eweb.framework.mybatis.core.cache;
 
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
-import java.time.Duration;
-import java.util.Map;
-import java.util.concurrent.Callable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
 import org.springframework.cache.support.SimpleCacheManager;
@@ -26,6 +23,10 @@ import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
+
+import java.time.Duration;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 /**
  * 动态数据Redis缓存

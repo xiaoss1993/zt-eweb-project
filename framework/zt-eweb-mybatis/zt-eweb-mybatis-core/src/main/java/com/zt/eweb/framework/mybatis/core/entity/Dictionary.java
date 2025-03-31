@@ -8,13 +8,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zt.eweb.framework.mybatis.core.binding.query.BindQuery;
 import com.zt.eweb.framework.mybatis.core.binding.query.Comparison;
 import com.zt.eweb.framework.mybatis.core.vo.LabelValue;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotNull;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 数据字典实体

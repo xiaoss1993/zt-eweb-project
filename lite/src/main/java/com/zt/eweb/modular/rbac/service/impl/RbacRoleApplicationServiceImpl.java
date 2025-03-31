@@ -3,8 +3,9 @@ package com.zt.eweb.modular.rbac.service.impl;
 import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import com.zt.eweb.modular.rbac.service.RbacRoleApplicationService;
-import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * 模块名 :

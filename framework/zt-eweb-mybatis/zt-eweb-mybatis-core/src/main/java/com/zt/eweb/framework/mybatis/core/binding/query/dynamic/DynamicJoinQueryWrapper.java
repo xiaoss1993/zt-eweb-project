@@ -4,9 +4,10 @@ package com.zt.eweb.framework.mybatis.core.binding.query.dynamic;
 import com.zt.eweb.framework.mybatis.core.binding.JoinsBinder;
 import com.zt.eweb.framework.mybatis.core.binding.parser.ParserCache;
 import com.zt.eweb.framework.mybatis.core.vo.Pagination;
+import lombok.Getter;
+
 import java.util.Collection;
 import java.util.List;
-import lombok.Getter;
 
 /**
  * 动态查询wrapper

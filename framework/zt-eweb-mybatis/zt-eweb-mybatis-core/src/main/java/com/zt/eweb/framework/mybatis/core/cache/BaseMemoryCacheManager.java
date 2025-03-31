@@ -16,11 +16,12 @@
 package com.zt.eweb.framework.mybatis.core.cache;
 
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
-import java.util.concurrent.Callable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
 import org.springframework.cache.concurrent.ConcurrentMapCache;
 import org.springframework.cache.support.SimpleCacheManager;
+
+import java.util.concurrent.Callable;
 
 /**
  * 缓存manager父类

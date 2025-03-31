@@ -6,11 +6,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zt.eweb.framework.mybatis.core.binding.query.dynamic.DynamicSqlProvider;
-import java.util.List;
-import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.SelectProvider;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 通用联表查询Mapper

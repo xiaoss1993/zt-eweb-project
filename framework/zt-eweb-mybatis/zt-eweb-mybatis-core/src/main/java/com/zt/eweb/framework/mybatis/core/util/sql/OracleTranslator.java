@@ -16,11 +16,12 @@
 package com.zt.eweb.framework.mybatis.core.util.sql;
 
 import com.zt.eweb.framework.mybatis.core.util.S;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Oracle SQL翻译器

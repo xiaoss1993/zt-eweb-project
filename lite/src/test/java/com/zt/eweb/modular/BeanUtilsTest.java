@@ -2,11 +2,12 @@ package com.zt.eweb.modular;
 
 import com.sun.management.OperatingSystemMXBean;
 import com.zt.eweb.ZTEwebLiteApplication;
-import java.lang.management.ManagementFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.lang.management.ManagementFactory;
 
 /**
  * BeanUtils测试

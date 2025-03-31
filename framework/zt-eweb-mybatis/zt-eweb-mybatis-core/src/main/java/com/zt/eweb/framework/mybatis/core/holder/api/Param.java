@@ -1,9 +1,10 @@
 
 package com.zt.eweb.framework.mybatis.core.holder.api;
 
-import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 /**
  * 接口参数

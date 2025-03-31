@@ -1,31 +1,21 @@
 
 package com.zt.eweb.framework.mybatis.core.binding.binder.parallel;
 
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindCount;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindDict;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindEntity;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindEntityList;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindField;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindFieldList;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindI18n;
-import com.zt.eweb.framework.mybatis.core.binding.binder.BaseBinder;
-import com.zt.eweb.framework.mybatis.core.binding.binder.CountBinder;
-import com.zt.eweb.framework.mybatis.core.binding.binder.EntityBinder;
-import com.zt.eweb.framework.mybatis.core.binding.binder.EntityListBinder;
-import com.zt.eweb.framework.mybatis.core.binding.binder.FieldBinder;
-import com.zt.eweb.framework.mybatis.core.binding.binder.FieldListBinder;
+import com.zt.eweb.framework.mybatis.core.binding.annotation.*;
+import com.zt.eweb.framework.mybatis.core.binding.binder.*;
 import com.zt.eweb.framework.mybatis.core.binding.parser.ConditionManager;
 import com.zt.eweb.framework.mybatis.core.binding.parser.FieldAnnotation;
 import com.zt.eweb.framework.mybatis.core.service.DictionaryServiceExtProvider;
 import com.zt.eweb.framework.mybatis.core.service.I18nConfigService;
 import com.zt.eweb.framework.mybatis.core.util.S;
 import com.zt.eweb.framework.mybatis.core.util.V;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * 并行绑定Manager

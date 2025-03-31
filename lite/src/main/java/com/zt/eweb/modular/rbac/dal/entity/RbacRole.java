@@ -4,8 +4,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.Serializable;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 系统角色
@@ -14,7 +15,7 @@ import lombok.Data;
  * @since 2022-12-26
  */
 @Data
-@TableName("sys_role")
+@TableName("role")
 @Schema(description = "系统角色")
 public class RbacRole implements Serializable {
 
@@ -29,10 +30,6 @@ public class RbacRole implements Serializable {
 
     @Schema(description = "角色唯一编码")
     private String code;
-
-    @Schema(description = "角色备注")
-    private String remark;
-
 
 }
 

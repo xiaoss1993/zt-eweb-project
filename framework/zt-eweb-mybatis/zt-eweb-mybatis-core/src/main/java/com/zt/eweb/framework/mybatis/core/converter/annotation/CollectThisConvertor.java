@@ -15,12 +15,9 @@
  */
 package com.zt.eweb.framework.mybatis.core.converter.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 import org.springframework.stereotype.Component;
+
+import java.lang.annotation.*;
 
 /**
  * 收集类型转换注解

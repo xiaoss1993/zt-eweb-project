@@ -16,10 +16,11 @@
 package com.zt.eweb.framework.mybatis.core.binding.parser;
 
 import com.zt.eweb.framework.mybatis.core.binding.query.Comparison;
-import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * 字段

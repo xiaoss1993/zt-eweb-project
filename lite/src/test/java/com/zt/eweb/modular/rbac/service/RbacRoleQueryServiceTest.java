@@ -1,21 +1,21 @@
 package com.zt.eweb.modular.rbac.service;
 
+import cn.hutool.core.bean.DynaBean;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.wujiuye.flow.FlowHelper;
 import com.wujiuye.flow.FlowType;
 import com.wujiuye.flow.Flower;
+import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.anyline.service.AnylineService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 /**
  * 模块名 :
@@ -44,9 +44,6 @@ public class RbacRoleQueryServiceTest {
     private RbacRoleMapper      roleMapper;
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    protected AnylineService service;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -56,6 +53,12 @@ public class RbacRoleQueryServiceTest {
     @Order(1)
     @DisplayName("分页查询角色列表")
     void testQueryRolePage() {
+        QueryWrapper<RbacRole> queryWrapper = Wrappers.query();
+        queryWrapper.select("id,name, code ,create_time ,description ");
+        queryWrapper.lambda().eq(RbacRole::getId, "101");
+        RbacRole role = new RbacRole();
+        DynaBean bean = DynaBean.create(role);
+        bean = DynaBean.create(roleMapper.selectOne(queryWrapper));
 
     }
     private FlowHelper flowHelper = new FlowHelper(FlowType.Hour);

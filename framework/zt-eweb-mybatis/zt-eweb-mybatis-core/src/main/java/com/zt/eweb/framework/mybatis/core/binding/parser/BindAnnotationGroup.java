@@ -1,20 +1,15 @@
 
 package com.zt.eweb.framework.mybatis.core.binding.parser;
 
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindCount;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindDict;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindEntity;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindEntityList;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindField;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindFieldList;
-import com.zt.eweb.framework.mybatis.core.binding.annotation.BindI18n;
+import com.zt.eweb.framework.mybatis.core.binding.annotation.*;
 import com.zt.eweb.framework.mybatis.core.util.V;
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * VO绑定注解的归类分组，用于缓存解析后的结果
