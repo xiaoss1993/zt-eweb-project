@@ -23,8 +23,30 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-
       <scope>test</scope>
+    </dependency>
+
+    <!--bootstrap 启动器-->
+    <dependency>
+      <artifactId>spring-cloud-starter-bootstrap</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <artifactId>slf4j-api</artifactId>
+      <groupId>org.slf4j</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>commons-lang3</artifactId>
+      <groupId>org.apache.commons</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>hutool-all</artifactId>
+      <groupId>cn.hutool</groupId>
     </dependency>
   </dependencies>
 </project>

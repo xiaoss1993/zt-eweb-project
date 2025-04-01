@@ -16,6 +16,9 @@
     <module>zt-eweb-rbac-api</module>
     <module>zt-eweb-rbac-app</module>
     <module>zt-eweb-rbac-infra</module>
+    <module>zt-eweb-rbac-domain</module>
+    <module>zt-eweb-rbac-client</module>
+    <module>zt-eweb-rbac-start</module>
   </modules>
 
   <name>zt-eweb-rbac</name>

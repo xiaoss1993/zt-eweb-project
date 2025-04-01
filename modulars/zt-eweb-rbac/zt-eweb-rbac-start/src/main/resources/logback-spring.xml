@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+
+  <logger level="INFO" name="org.springframework.web"/>
+  <logger level="INFO" name="org.springboot.sample"/>
+  <logger level="DEBUG" name="com.zt.eweb"/>
+
+  <springProfile name="test,prod">
+    <appender class="ch.qos.logback.core.ConsoleAppender"
+      name="STDOUT">
+      <!--定义了一个过滤器,在LEVEL之下的日志输出不会被打印出来-->
+      <!--这里定义了ERROR，也就是控制台不会输出比ERROR级别小的日志-->
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        <Pattern>%d{HH:mm:ss.SSS} %-5level %logger{80} - %msg%n</Pattern>
+      </encoder>
+      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>ERROR</level>
+      </filter>
+    </appender>
+
+    <appender class="ch.qos.logback.core.rolling.RollingFileAppender"
+      name="zt-eweb">
+      <append>true</append>
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        <charset>UTF-8</charset>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+      </encoder>
+      <file>
+        /var/logs/xtoon/xtoon_web.log
+      </file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <FileNamePattern>/var/logs/xtoon/xtoon_web.log.%d{yyyy-MM-dd}</FileNamePattern>
+        <MaxHistory>30</MaxHistory>
+      </rollingPolicy>
+    </appender>
+
+    <appender class="ch.qos.logback.core.rolling.RollingFileAppender"
+      name="zt-eweb-error">
+      <append>true</append>
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        <charset>UTF-8</charset>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+      </encoder>
+      <file>
+        /var/logs/xtoon/xtoon_error.log
+      </file>
+      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>ERROR</level>
+      </filter>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <FileNamePattern>/var/logs/xtoon/xtoon_error.log.%d{yyyy-MM-dd}</FileNamePattern>
+        <MaxHistory>30</MaxHistory>
+      </rollingPolicy>
+    </appender>
+
+    <!--root是默认的logger 这里设定输出级别是DEBUG-->
+    <logger level="INFO" name="org.springframework.web"/>
+    <!--这个logger没有指定appender，它会继承root节点中定义的那些appender-->
+    <logger level="INFO" name="org.springboot.sample"/>
+    <logger additivity="false" level="INFO" name="com.zt.eweb.modular">
+      <appender-ref ref="zt-eweb"/>
+      <appender-ref ref="zt-eweb-error"/>
+    </logger>
+    <root level="ERROR">
+      <appender-ref ref="STDOUT"/>
+    </root>
+  </springProfile>
+
+</configuration>

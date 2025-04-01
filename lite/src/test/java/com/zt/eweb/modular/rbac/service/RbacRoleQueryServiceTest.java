@@ -5,7 +5,6 @@ import com.wujiuye.flow.FlowType;
 import com.wujiuye.flow.Flower;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.anyline.service.AnylineService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -44,9 +43,6 @@ public class RbacRoleQueryServiceTest {
     private RbacRoleMapper      roleMapper;
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    protected AnylineService service;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);

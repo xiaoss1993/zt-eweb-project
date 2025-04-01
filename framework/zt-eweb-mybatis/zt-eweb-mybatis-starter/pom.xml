@@ -1,0 +1,57 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>zt-eweb-mybatis-starter</artifactId>
+  <dependencies>
+    <dependency>
+      <artifactId>zt-eweb-mybatis-core</artifactId>
+      <groupId>com.zt.eweb</groupId>
+      <version>1.1.0</version>
+    </dependency>
+    <dependency>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <groupId>com.baomidou</groupId>
+    </dependency>
+    <!-- 打包依赖的jar -->
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <!-- SpringBoot 2.3.x+ 新增依赖 -->
+    <dependency>
+      <artifactId>spring-boot-starter-validation</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+    </dependency>
+    <!-- 单元测试依赖 -->
+    <dependency>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <artifactId>junit</artifactId>
+      <groupId>junit</groupId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <modelVersion>4.0.0</modelVersion>
+  <name>zt-eweb-mybatis-starter</name>
+
+  <packaging>jar</packaging>
+  <parent>
+    <artifactId>zt-eweb-mybatis</artifactId>
+    <groupId>com.zt.eweb</groupId>
+    <version>1.1.0</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <url>http://maven.apache.org</url>
+</project>
