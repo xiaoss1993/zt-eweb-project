@@ -3,10 +3,11 @@ package com.zt.eweb.framework.mybatis.core.vo;
 
 import com.zt.eweb.framework.mybatis.core.binding.annotation.BindEntityList;
 import com.zt.eweb.framework.mybatis.core.entity.Dictionary;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.util.List;
 
 /**
  * 数据字典的VO，附带子项定义children

@@ -2,9 +2,10 @@
 package com.zt.eweb.framework.mybatis.core.util.init;
 
 import com.zt.eweb.framework.mybatis.core.util.ContextHolder;
+import lombok.SneakyThrows;
+
 import java.util.Objects;
 import java.util.function.Supplier;
-import lombok.SneakyThrows;
 
 /**
  * 初始化器 工具类

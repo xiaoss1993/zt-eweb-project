@@ -8,9 +8,10 @@ import com.zt.eweb.framework.mybatis.core.binding.parser.ParserCache;
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
 import com.zt.eweb.framework.mybatis.core.util.ContextHolder;
 import com.zt.eweb.framework.mybatis.core.vo.Pagination;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 动态查询wrapper

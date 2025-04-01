@@ -16,22 +16,12 @@ import com.zt.eweb.framework.mybatis.core.binding.query.Comparison;
 import com.zt.eweb.framework.mybatis.core.config.BaseConfig;
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
 import com.zt.eweb.framework.mybatis.core.service.BaseService;
-import com.zt.eweb.framework.mybatis.core.util.AnnotationUtils;
-import com.zt.eweb.framework.mybatis.core.util.BeanUtils;
-import com.zt.eweb.framework.mybatis.core.util.ContextHolder;
-import com.zt.eweb.framework.mybatis.core.util.IGetter;
-import com.zt.eweb.framework.mybatis.core.util.PropertiesUtils;
-import com.zt.eweb.framework.mybatis.core.util.S;
-import com.zt.eweb.framework.mybatis.core.util.V;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.zt.eweb.framework.mybatis.core.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Field;
+import java.util.*;
 
 /**
  * 关系绑定Binder父类

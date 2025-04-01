@@ -5,10 +5,6 @@ import com.zt.eweb.framework.mybatis.core.exception.BusinessException;
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
 import com.zt.eweb.framework.mybatis.core.util.V;
 import com.zt.eweb.framework.mybatis.core.vo.Status;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +15,11 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 全局异常统一处理的默认实现 （继承自该类并添加@ControllerAdvice注解即可自动支持兼容页面和JSON的异常处理）

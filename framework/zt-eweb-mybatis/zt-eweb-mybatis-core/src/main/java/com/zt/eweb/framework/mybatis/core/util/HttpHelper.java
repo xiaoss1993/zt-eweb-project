@@ -2,12 +2,13 @@
 package com.zt.eweb.framework.mybatis.core.util;
 
 import com.zt.eweb.framework.mybatis.core.config.Cons;
+import lombok.extern.slf4j.Slf4j;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * HTTP请求相关工具类

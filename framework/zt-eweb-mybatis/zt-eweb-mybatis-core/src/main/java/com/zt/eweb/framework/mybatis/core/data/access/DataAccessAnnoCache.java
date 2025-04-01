@@ -3,13 +3,14 @@ package com.zt.eweb.framework.mybatis.core.data.access;
 
 import com.zt.eweb.framework.mybatis.core.util.BeanUtils;
 import com.zt.eweb.framework.mybatis.core.util.V;
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 数据访问权限的注解缓存

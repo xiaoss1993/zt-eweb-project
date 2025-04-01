@@ -14,18 +14,15 @@ import com.zt.eweb.framework.mybatis.core.util.S;
 import com.zt.eweb.framework.mybatis.core.util.V;
 import com.zt.eweb.framework.mybatis.core.util.init.BeanInitUtils;
 import com.zt.eweb.framework.mybatis.core.util.init.BeanInitializer;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.context.annotation.Primary;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.springframework.context.annotation.Primary;
+import java.util.*;
 
 /**
  * CacheManager

@@ -1,9 +1,10 @@
 package com.zt.eweb.framework.mybatis.core.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 /**
  * API接口地址

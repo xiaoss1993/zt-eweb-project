@@ -11,12 +11,13 @@ import com.zt.eweb.framework.mybatis.core.config.BaseConfig;
 import com.zt.eweb.framework.mybatis.core.config.Cons;
 import com.zt.eweb.framework.mybatis.core.util.S;
 import com.zt.eweb.framework.mybatis.core.util.V;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.jdbc.SQL;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.jdbc.SQL;
 
 /**
  * 动态SQL构建Provider

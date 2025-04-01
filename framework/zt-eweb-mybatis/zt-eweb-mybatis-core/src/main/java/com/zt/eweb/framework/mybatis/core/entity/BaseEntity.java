@@ -7,12 +7,13 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zt.eweb.framework.mybatis.core.config.Cons;
 import com.zt.eweb.framework.mybatis.core.util.JSON;
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Map;
 
 /**
  * Entity基础父类

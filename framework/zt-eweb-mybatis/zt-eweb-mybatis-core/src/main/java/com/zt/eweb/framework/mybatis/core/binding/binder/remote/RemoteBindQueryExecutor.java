@@ -16,7 +16,10 @@ import com.zt.eweb.framework.mybatis.core.util.V;
 import com.zt.eweb.framework.mybatis.core.vo.JsonResult;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 远程绑定查询执行器

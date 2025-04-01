@@ -1,11 +1,12 @@
 package com.zt.eweb.framework.mybatis.core.dto;
 
 import com.zt.eweb.framework.mybatis.core.entity.AbstractEntity;
-import java.io.Serializable;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * 批量更新实体DTO

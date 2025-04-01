@@ -8,13 +8,14 @@ import com.zt.eweb.framework.mybatis.core.config.Cons;
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
 import com.zt.eweb.framework.mybatis.core.util.BeanUtils;
 import com.zt.eweb.framework.mybatis.core.util.V;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanWrapper;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanWrapper;
 
 /**
  * 关联字段绑定

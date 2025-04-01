@@ -23,11 +23,6 @@ import com.zt.eweb.framework.mybatis.core.data.access.DataScopeManager;
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
 import com.zt.eweb.framework.mybatis.core.util.ContextHolder;
 import com.zt.eweb.framework.mybatis.core.util.S;
-import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
@@ -40,6 +35,12 @@ import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.schema.Table;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * 数据访问控制处理器

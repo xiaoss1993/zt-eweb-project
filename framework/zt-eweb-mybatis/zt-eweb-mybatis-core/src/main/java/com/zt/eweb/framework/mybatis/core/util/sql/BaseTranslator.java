@@ -19,13 +19,9 @@ import com.zt.eweb.framework.mybatis.core.exception.BusinessException;
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
 import com.zt.eweb.framework.mybatis.core.util.S;
 import com.zt.eweb.framework.mybatis.core.util.V;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.*;
 
 /**
  * SQL翻译器基础类

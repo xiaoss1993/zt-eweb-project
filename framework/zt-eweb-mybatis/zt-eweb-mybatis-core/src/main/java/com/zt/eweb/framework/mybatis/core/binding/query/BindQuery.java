@@ -1,13 +1,8 @@
 
 package com.zt.eweb.framework.mybatis.core.binding.query;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Repeatable;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 import javax.lang.model.type.NullType;
+import java.lang.annotation.*;
 
 /**
  * 绑定管理器

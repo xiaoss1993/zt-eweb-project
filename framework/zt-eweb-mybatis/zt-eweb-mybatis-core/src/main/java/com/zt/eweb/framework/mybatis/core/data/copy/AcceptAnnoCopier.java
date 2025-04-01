@@ -3,15 +3,16 @@ package com.zt.eweb.framework.mybatis.core.data.copy;
 
 import com.zt.eweb.framework.mybatis.core.util.BeanUtils;
 import com.zt.eweb.framework.mybatis.core.util.V;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.reflection.SystemMetaObject;
+import org.springframework.beans.BeanWrapper;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.reflection.SystemMetaObject;
-import org.springframework.beans.BeanWrapper;
 
 /**
  * Accept注解拷贝器

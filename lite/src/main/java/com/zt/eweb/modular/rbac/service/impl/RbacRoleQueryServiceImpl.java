@@ -6,9 +6,10 @@ import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import com.zt.eweb.modular.rbac.dal.query.RbacRoleQuery;
 import com.zt.eweb.modular.rbac.service.RbacRoleQueryService;
-import java.util.List;
-import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 模块名 :

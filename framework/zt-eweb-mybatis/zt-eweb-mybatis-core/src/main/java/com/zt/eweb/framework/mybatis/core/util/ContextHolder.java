@@ -11,12 +11,6 @@ import com.zt.eweb.framework.mybatis.core.binding.parser.ParserCache;
 import com.zt.eweb.framework.mybatis.core.binding.parser.PropInfo;
 import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
 import com.zt.eweb.framework.mybatis.core.service.BaseService;
-import java.lang.annotation.Annotation;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -28,6 +22,13 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.ContextLoader;
+
+import javax.sql.DataSource;
+import java.lang.annotation.Annotation;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Spring上下文帮助类

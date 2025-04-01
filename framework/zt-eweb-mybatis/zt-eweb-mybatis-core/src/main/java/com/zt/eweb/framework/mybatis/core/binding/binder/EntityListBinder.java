@@ -9,13 +9,10 @@ import com.zt.eweb.framework.mybatis.core.exception.InvalidUsageException;
 import com.zt.eweb.framework.mybatis.core.util.BeanUtils;
 import com.zt.eweb.framework.mybatis.core.util.S;
 import com.zt.eweb.framework.mybatis.core.util.V;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.*;
 
 /**
  * Entity集合绑定实现

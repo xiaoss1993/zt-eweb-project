@@ -26,19 +26,14 @@ import com.zt.eweb.framework.mybatis.core.util.BeanUtils;
 import com.zt.eweb.framework.mybatis.core.util.S;
 import com.zt.eweb.framework.mybatis.core.util.V;
 import com.zt.eweb.framework.mybatis.core.vo.Pagination;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.Serializable;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
