@@ -1,16 +1,10 @@
 package com.zt.eweb.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.DataChangeRecorderInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.IllegalSQLInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.p6spy.engine.event.JdbcEventListener;
-import java.util.Collections;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,8 +26,8 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class MybatisPlusConfig {
-    @Autowired(required = false)
-    private List<JdbcEventListener> listeners;
+//    @Autowired(required = false)
+//    private List<JdbcEventListener> listeners;
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
@@ -48,17 +42,17 @@ public class MybatisPlusConfig {
         return interceptor;
     }
 
-  @ConfigurationProperties(prefix = "spring.datasource")
-  @Bean(initMethod = "init", destroyMethod = "close")
-  public DruidDataSource dataSource() {
-    DruidDataSource dataSource = new DruidDataSource();
-    //使用自定义拦截器 注意 不能new
-    dataSource.setProxyFilters(Collections.singletonList(new SlowSqlTestFilter()));
-    //dataSource.setProxyFilters(Collections.singletonList(statGwmFilter()));
-    //设置druid的重置间隔
-    dataSource.setTimeBetweenLogStatsMillis(60000);
-    return dataSource;
-  }
+//  @ConfigurationProperties(prefix = "spring.datasource")
+//  @Bean(initMethod = "init", destroyMethod = "close")
+//  public DruidDataSource dataSource() {
+//    DruidDataSource dataSource = new DruidDataSource();
+//    //使用自定义拦截器 注意 不能new
+//    dataSource.setProxyFilters(Collections.singletonList(new SlowSqlTestFilter()));
+//    //dataSource.setProxyFilters(Collections.singletonList(statGwmFilter()));
+//    //设置druid的重置间隔
+//    dataSource.setTimeBetweenLogStatsMillis(60000);
+//    return dataSource;
+//  }
 
 
 }

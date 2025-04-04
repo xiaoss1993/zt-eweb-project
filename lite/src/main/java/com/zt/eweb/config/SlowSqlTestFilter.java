@@ -10,8 +10,10 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.NClob;
+import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -35,6 +37,8 @@ public class SlowSqlTestFilter extends FilterEventAdapter implements StatFilterM
 
   private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+  @Autowired
+  private HttpServletRequest  request;
 
   @Override
   protected void statementExecuteBefore(StatementProxy statement, String sql) {

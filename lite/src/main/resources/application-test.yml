@@ -1,0 +1,90 @@
+logging:
+  config: classpath:log4j2.xml
+  level:
+    org:
+      springframework:
+        web: trace
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.example.demo.mapper
+server:
+  error:
+    include-stacktrace: always
+spring:
+  application:
+    name: dynamic
+  datasource:
+    druid:
+      aop-patterns: com.druid.*
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          merge-sql: true
+          slow-sql-millis: 10000
+        wall:
+          enabled: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      stat-view-servlet:
+        allow: 127.0.0.1,192.168.163.1
+        deny: 192.168.10.1
+        enabled: true
+        login-password: root
+        login-username: root
+      useGlobalDataSourceStat: true
+      web-stat-filter:
+        enabled: true
+        exclusions: '*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*'
+        profile-enable: true
+        session-stat-enable: true
+        url-pattern: /*
+    dynamic:
+      datasource:
+        goodsdb:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          druid:
+            filters: stat,wall,log4j2
+            initial-size: 5
+            max-active: 20
+            max-evictable-idle-time-millis: 300000
+            max-wait: 60000
+            min-evictable-idle-time-millis: 300000
+            min-idle: 5
+            pool-prepared-statements: true
+            share-prepared-statements: true
+            test-on-borrow: false
+            test-on-return: false
+            test-while-idle: true
+            time-between-eviction-runs-millis: 60000
+            validation-query: select 1
+            validation-query-timeout: -1
+          password: lhddemo
+          type: com.alibaba.druid.pool.DruidDataSource
+          url: jdbc:mysql://127.0.0.1:3306/store?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+          username: root
+        orderdb:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          druid:
+            filters: stat,wall,log4j2
+            initial-size: 5
+            max-active: 20
+            max-evictable-idle-time-millis: 300000
+            max-wait: 60000
+            min-evictable-idle-time-millis: 300000
+            min-idle: 5
+            pool-prepared-statements: true
+            share-prepared-statements: true
+            test-on-borrow: false
+            test-on-return: false
+            test-while-idle: true
+            time-between-eviction-runs-millis: 60000
+            validation-query: select 1
+            validation-query-timeout: -1
+          password: lhddemo
+          type: com.alibaba.druid.pool.DruidDataSource
+          url: jdbc:mysql://127.0.0.1:3306/orderdb?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+          username: root
+      primary: orderdb

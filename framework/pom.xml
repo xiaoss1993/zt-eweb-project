@@ -18,6 +18,7 @@
         <module>zt-eweb-dependencies</module>
       <module>zt-eweb-mybatis</module>
       <module>zt-eweb-commons</module>
+      <module>zt-eweb-dynamic-datasource</module>
     </modules>
 
     <properties>

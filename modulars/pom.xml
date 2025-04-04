@@ -14,6 +14,7 @@
   <modules>
     <module>zt-eweb-rbac</module>
     <module>zt-eweb-meta</module>
+    <module>zt-eweb-codegen</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

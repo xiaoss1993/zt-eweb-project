@@ -2,30 +2,20 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>zt-eweb-rbac-start</artifactId>
-  <build>
-    <finalName>zt-eweb-rbac</finalName>
-    <plugins>
-      <plugin>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <groupId>org.springframework.boot</groupId>
-      </plugin>
-    </plugins>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**/*.xml</include>
-          <include>**/*.json</include>
-          <include>**/*.ftl</include>
-        </includes>
-      </resource>
-    </resources>
-  </build>
 
+  <modelVersion>4.0.0</modelVersion>
+  <name>zt-eweb-rbac-start</name>
+  <packaging>jar</packaging>
+
+  <parent>
+    <artifactId>zt-eweb-rbac</artifactId>
+    <groupId>com.zt.eweb</groupId>
+    <version>1.1.0</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <dependencies>
     <!-- web环境 -->
     <dependency>
@@ -51,23 +41,30 @@
       <artifactId>junit-jupiter-api</artifactId>
       <groupId>org.junit.jupiter</groupId>
       <scope>test</scope>
-      <version>RELEASE</version>
     </dependency>
   </dependencies>
-  <modelVersion>4.0.0</modelVersion>
+  <build>
+    <finalName>zt-eweb-rbac</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.json</include>
+          <include>**/*.ftl</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
 
-  <name>zt-eweb-rbac-start</name>
-  <packaging>jar</packaging>
-
-  <parent>
-    <artifactId>zt-eweb-rbac</artifactId>
-    <groupId>com.zt.eweb</groupId>
-    <version>1.1.0</version>
-  </parent>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <url>http://maven.apache.org</url>
 </project>

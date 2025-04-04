@@ -1,9 +1,9 @@
 package com.zt.eweb.modular.rbac.service;
 
-import com.wujiuye.flow.FlowHelper;
-import com.wujiuye.flow.FlowType;
-import com.wujiuye.flow.Flower;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
 import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -52,22 +52,7 @@ public class RbacRoleQueryServiceTest {
     @Order(1)
     @DisplayName("分页查询角色列表")
     void testQueryRolePage() {
-
-    }
-    private FlowHelper flowHelper = new FlowHelper(FlowType.Hour);
-
-    @Test
-    void countQPS(){
-        Flower flower = flowHelper.getFlow(FlowType.Hour);
-        System.out.println("总请求数:"+flower.total());
-        System.out.println("成功请求数:"+flower.totalSuccess());
-        System.out.println("异常请求数:"+flower.totalException());
-        System.out.println("平均请求耗时:"+flower.avgRt());
-        System.out.println("最大请求耗时:"+flower.maxRt());
-        System.out.println("最小请求耗时:"+flower.minRt());
-        System.out.println("平均请求成功数(每毫秒):"+flower.successAvg());
-        System.out.println("平均请求异常数(每毫秒):"+flower.exceptionAvg());
-        System.out.println();
+        List<RbacRole> roleList = roleMapper.selectList(Wrappers.emptyWrapper());
     }
     @Test
     public void testInt(){
