@@ -10,6 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <revision>1.1.0</revision>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -20,6 +21,22 @@
                 <artifactId>zt-eweb-dependencies</artifactId>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.zt.eweb</groupId>
+                <artifactId>zt-eweb-commons</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zt.eweb</groupId>
+                <artifactId>zt-eweb-cache</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zt.eweb</groupId>
+                <artifactId>zt-eweb-auth</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

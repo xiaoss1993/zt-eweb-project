@@ -16,11 +16,12 @@
         <module>zt-eweb-sdk</module>
         <module>zt-eweb-parent</module>
         <module>zt-eweb-dependencies</module>
-      <module>zt-eweb-mybatis</module>
-      <module>zt-eweb-commons</module>
-      <module>zt-eweb-dynamic-datasource</module>
-      <module>zt-eweb-auth</module>
-      <module>zt-eweb-cache</module>
+        <module>zt-eweb-mybatis</module>
+        <module>zt-eweb-commons</module>
+        <module>zt-eweb-dynamic-datasource</module>
+        <module>zt-eweb-auth</module>
+        <module>zt-eweb-cache</module>
+        <module>zt-eweb-event</module>
     </modules>
 
     <properties>
