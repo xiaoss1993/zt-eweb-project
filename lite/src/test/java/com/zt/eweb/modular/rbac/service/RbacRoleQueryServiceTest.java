@@ -1,8 +1,6 @@
 package com.zt.eweb.modular.rbac.service;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.zt.eweb.modular.rbac.dal.entity.RbacRole;
-import com.zt.eweb.modular.rbac.dal.mapper.RbacRoleMapper;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,30 +35,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RbacRoleQueryServiceTest {
-    @Autowired
-    private RbacRoleQueryService    rbacRoleQueryService;
-    @Autowired
-    private RbacRoleMapper      roleMapper;
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
 
-    @Test
-    @Order(1)
-    @DisplayName("分页查询角色列表")
-    void testQueryRolePage() {
-        List<RbacRole> roleList = roleMapper.selectList(Wrappers.emptyWrapper());
-    }
-    @Test
-    public void testInt(){
-        int a =1000,b=1000;
-        System.out.println(a==b);
-        Integer  c = 1000;
-        Integer  d = 1000;
-        System.out.println(c.intValue() == d.intValue());
-    }
 }
 

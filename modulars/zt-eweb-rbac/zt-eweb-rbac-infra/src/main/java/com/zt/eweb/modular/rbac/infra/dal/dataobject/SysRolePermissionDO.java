@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zt.eweb.framework.mybatis.core.entity.BaseEntity;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 角色权限关联DO
  *
@@ -12,7 +14,7 @@ import lombok.Data;
  **/
 @Data
 @TableName("sys_role_permission")
-public class SysRolePermissionDO extends BaseEntity<String> {
+public class SysRolePermissionDO implements Serializable {
 
     /**
      * 角色ID

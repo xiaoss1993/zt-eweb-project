@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zt.eweb.framework.mybatis.core.entity.BaseEntity;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 日志DO
  *
@@ -12,7 +14,7 @@ import lombok.Data;
  **/
 @Data
 @TableName("sys_log")
-public class SysLogDO extends BaseEntity<String> {
+public class SysLogDO implements Serializable {
 
     /**
      * 用户名

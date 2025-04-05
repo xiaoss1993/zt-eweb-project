@@ -6,7 +6,7 @@ logging:
         web: trace
 # mybaits-plus配置
 mybatis-plus:
-  mapper-locations: classpath*:/mapper/*/*Mapper.xml
+  mapper-locations: classpath*:mapper/*/*Mapper.xml
   global-config:
     banner: false
     db-config:
@@ -25,14 +25,7 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     # 打印SQL语句和结果集，本地开发环境可开启，线上注释掉
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  type-aliases-package: com.zt.eweb.modular.**.dal
-# mybatis xml文件热加载配置
-mybatis-xml-reload:
-  # 是否开启 xml 热更新，true开启，false不开启，默认为false
-  enabled: true
-  # xml文件路径，可以填写多个，逗号分隔。如果想将xml文件放在指定目录而不是jar包内，可以用file前缀指定本地目录，例如 file:/c/mapper/*.xml
-  # eg: `classpath:mapper/**/*Mapper.xml,file:/c/mapper/*.xml`
-  mapper-locations: classpath:mapper/**/*Mapper.xml
+
 
 server:
   error:

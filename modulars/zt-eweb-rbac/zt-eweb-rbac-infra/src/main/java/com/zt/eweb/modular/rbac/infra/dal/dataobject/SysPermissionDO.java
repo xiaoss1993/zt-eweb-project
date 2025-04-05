@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zt.eweb.framework.mybatis.core.entity.BaseEntity;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 菜单权限DO
  *
@@ -12,7 +14,7 @@ import lombok.Data;
  **/
 @Data
 @TableName("sys_permission")
-public class SysPermissionDO extends BaseEntity<String> {
+public class SysPermissionDO implements Serializable {
 
     /**
      * 父级ID

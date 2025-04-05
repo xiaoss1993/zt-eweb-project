@@ -7,9 +7,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * 角色编码
- *
- * @author haoxin
- * @date 2021-02-08
  **/
 public class RoleCode implements ValueObject<RoleCode> {
 

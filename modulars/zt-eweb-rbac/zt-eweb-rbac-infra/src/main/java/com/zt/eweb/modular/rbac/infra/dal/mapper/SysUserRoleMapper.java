@@ -1,6 +1,7 @@
 package com.zt.eweb.modular.rbac.infra.dal.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zt.eweb.framework.mybatis.core.mapper.BaseCrudMapper;
 import com.zt.eweb.modular.rbac.infra.dal.dataobject.SysUserRoleDO;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
@@ -12,7 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2021-02-14
  **/
 @Mapper
-public interface SysUserRoleMapper extends BaseMapper<SysUserRoleDO> {
+public interface SysUserRoleMapper extends BaseCrudMapper<SysUserRoleDO> {
 
     /**
      * 根据角色ID，批量删除

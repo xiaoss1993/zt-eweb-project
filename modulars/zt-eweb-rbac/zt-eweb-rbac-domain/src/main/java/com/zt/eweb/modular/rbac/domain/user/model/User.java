@@ -33,10 +33,6 @@ public class User implements Entity<User> {
      */
     private Account account;
 
-    /**
-     * 当前租户
-     */
-    private TenantId tenantId;
 
     /**
      * 角色Id列表
@@ -44,12 +40,12 @@ public class User implements Entity<User> {
     private List<RoleId> roleIds;
 
 
-    public User(UserId userId, UserName userName, StatusEnum status, Account account, TenantId tenantId, List<RoleId> roleIds) {
+    public User(UserId userId, UserName userName, StatusEnum status, Account account, List<RoleId> roleIds) {
         this.userId = userId;
         this.userName = userName;
         this.status = status;
         this.account = account;
-        this.tenantId = tenantId;
+
         this.roleIds = roleIds;
     }
 
@@ -102,9 +98,6 @@ public class User implements Entity<User> {
         return account;
     }
 
-    public TenantId getTenantId() {
-        return tenantId;
-    }
 
     public List<RoleId> getRoleIds() {
         return roleIds;

@@ -8,8 +8,6 @@ import org.apache.commons.lang.Validate;
 /**
  * 权限编码
  *
- * @author haoxin
- * @date 2021-02-15
  **/
 public class PermissionCodes implements ValueObject<PermissionCodes> {
 

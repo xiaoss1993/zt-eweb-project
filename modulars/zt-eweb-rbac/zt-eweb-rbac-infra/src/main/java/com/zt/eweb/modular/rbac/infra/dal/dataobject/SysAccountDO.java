@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zt.eweb.framework.mybatis.core.entity.BaseEntity;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 用户Token DO
  *
@@ -12,7 +14,7 @@ import lombok.Data;
  **/
 @Data
 @TableName("sys_account")
-public class SysAccountDO extends BaseEntity<String> {
+public class SysAccountDO implements Serializable {
 
     /**
      * 手机号

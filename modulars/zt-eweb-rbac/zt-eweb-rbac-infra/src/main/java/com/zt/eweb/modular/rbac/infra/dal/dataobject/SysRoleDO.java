@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zt.eweb.framework.mybatis.core.entity.BaseEntity;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 角色DO
  *
@@ -12,7 +14,7 @@ import lombok.Data;
  **/
 @Data
 @TableName("sys_role")
-public class SysRoleDO extends BaseEntity<String> {
+public class SysRoleDO implements Serializable {
 
     /**
      * 角色编码

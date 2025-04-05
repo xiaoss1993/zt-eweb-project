@@ -23,7 +23,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  */
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.zt.eweb.modular.**.mapper")
+@MapperScan(basePackages = {"com.zt.eweb.framework.mybatis.core.mapper", "com.zt.eweb.modular.rbac.infra.dal.mapper", "com.zt.eweb.modular.binder.mapper"})
 public class ZTEwebLiteApplication {
 
   public static void main(String[] args) {

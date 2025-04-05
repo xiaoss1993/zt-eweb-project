@@ -1,5 +1,9 @@
 package com.zt.eweb.modular.rbac.client.manager;
 
+import com.zt.eweb.modular.rbac.client.dto.UserDataPower;
+
+import java.util.List;
+
 /**
  * 模块名 : 文件名 : 创建时间 : 2025/4/5 14:28 实现功能 :
  * <p>
@@ -12,4 +16,11 @@ package com.zt.eweb.modular.rbac.client.manager;
  */
 public interface UserQueryService {
 
+    List<UserDataPower> getUserDataPowers(Long userId);
+
+    String getById(Long loginId);
+
+    List<String> getPowerCodesByUserIdAndPowerType(Long userId, Integer roleType);
+
+    List<String> getRoleCodesByUserIdAndRoleType(Long userId, Integer roleType);
 }

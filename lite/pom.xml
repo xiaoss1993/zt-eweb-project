@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.zt.eweb</groupId>
@@ -34,11 +34,6 @@
     <!--      <artifactId>p6spy-spring-boot-starter</artifactId>-->
     <!--      <version>1.8.0</version> &lt;!&ndash; 确认版本兼容性 &ndash;&gt;-->
     <!--    </dependency>-->
-    <dependency>
-      <groupId>io.github.wayn111</groupId>
-      <artifactId>mybatis-xmlreload-spring-boot-starter</artifactId>
-      <version>2.0.5.m3</version>
-    </dependency>
     <dependency>
       <groupId>com.zt.eweb</groupId>
       <artifactId>zt-eweb-mybatis-core</artifactId>

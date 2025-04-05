@@ -17,8 +17,6 @@ import lombok.Data;
 @TableName("sys_captcha")
 public class SysCaptchaDO extends BaseEntity<String> {
 
-    @TableId(type = IdType.INPUT)
-    private String uuid;
     /**
      * 验证码
      */

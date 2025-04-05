@@ -6,8 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * 角色ID
  *
- * @author haoxin
- * @date 2021-02-08
  **/
 public class RoleId implements ValueObject<RoleId> {
 
