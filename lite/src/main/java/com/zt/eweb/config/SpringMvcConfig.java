@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
+import com.zt.eweb.framework.common.config.EasyConfig;
 import com.zt.eweb.framework.mybatis.core.converter.Date2LocalDateConverter;
 import com.zt.eweb.framework.mybatis.core.converter.Date2LocalDateTimeConverter;
 import com.zt.eweb.framework.mybatis.core.converter.LocalDate2DateConverter;
@@ -23,6 +24,7 @@ import com.zt.eweb.framework.mybatis.core.converter.Timestamp2LocalDateTimeConve
 import com.zt.eweb.framework.mybatis.core.serial.deserializer.LocalDateTimeDeserializer;
 import com.zt.eweb.framework.mybatis.core.serial.serializer.BigDecimal2StringSerializer;
 import com.zt.eweb.framework.mybatis.core.util.D;
+import java.io.File;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.SimpleDateFormat;
@@ -32,12 +34,15 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.TimeZone;
+import javax.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -51,6 +56,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * ----------------------------------------------------------------
  */
 @Configuration
+@Slf4j
 public class SpringMvcConfig implements WebMvcConfigurer {
 
   @Value("${spring.jackson.date-format:" + D.FORMAT_DATETIME_Y4MDHMS + "}")
@@ -59,8 +65,12 @@ public class SpringMvcConfig implements WebMvcConfigurer {
   @Value("${spring.jackson.time-zone:GMT+8}")
   private String defaultTimeZone;
 
+
   @Value("${spring.jackson.default-property-inclusion:NON_NULL}")
   private JsonInclude.Include defaultPropertyInclusion;
+  @Resource
+  EasyConfig easyConfig;
+
 
   @Bean
   @ConditionalOnMissingBean
@@ -125,4 +135,49 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     registry.addConverter(new String2MapConverter());
     registry.addConverter(new Timestamp2LocalDateTimeConverter());
   }
+  /**
+   * 默认首页的设置，当输入域名是可以自动跳转到默认指定的网页
+   */
+
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    // 配置静态资源，自定义虚拟磁盘功能
+    File web = new File("web");
+    EasyConfig.Local local = easyConfig.getStorage().getLocal();
+    if (local.isEnable()) {
+      String path = local.getStoragePath();
+      File file = new File(path);
+      if (!file.exists()) {
+        file.mkdirs();
+      }
+      log.info(file.getAbsolutePath());
+      registry.addResourceHandler("/" + path + "/**")
+          .addResourceLocations("file:" + file.getAbsolutePath() + "/");
+    }
+
+    registry.addResourceHandler("/admin/**")
+        .addResourceLocations("file:" + web.getAbsolutePath() + "/admin/");
+
+  }
+
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        // 预先配置响应状态代码或视图以呈现响应主体。
+//        // 这在不需要自定义控制器逻辑的情况下很有用
+//        // @RequestMapping("/html1")
+//        //    public String html1(){
+//        //        return "index";
+//        //    }
+//        // ——例如呈现主页、执行简单的站点 URL 重定向、返回带有 HTML 内容的 404 状态、没有内容的 204 等等。
+////        registry.addViewController("/").setViewName("login");
+////        registry.addViewController("/login.html").setViewName("login");
+//    }
+
+//    @Override
+//    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+//        // 内容协商
+//        // 设置默认的设置默认的ContentType
+//        configurer.defaultContentType(MediaType.APPLICATION_JSON);
+//    }
+
 }

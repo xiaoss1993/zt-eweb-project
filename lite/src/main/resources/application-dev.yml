@@ -59,6 +59,7 @@ knife4j:
   enable: true # 2.2 是否开启 Swagger 文档的 Knife4j UI 界面
   setting:
     language: zh_cn
+# actuator
 management:
   endpoints:
     web:
@@ -72,7 +73,14 @@ management:
     git:
       mode: full
   health:
+    # 生成环境的话注意安全问题
+    # 生成环境的话注意安全问题
+    show-details: always
+    # 启用或禁用k8s健康检查
+    probes:
+      enabled: true
     mail:
       enabled: false # When using the MailService, configure an SMTP server and set this to true
   metrics:
     enabled: false # http://micrometer.io/ is disabled by default, as we use http://metrics.dropwizard.io/ instead
+

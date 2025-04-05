@@ -19,6 +19,7 @@
     <module>zt-eweb-rbac-domain</module>
     <module>zt-eweb-rbac-client</module>
     <module>zt-eweb-rbac-start</module>
+    <module>zt-eweb-rbac-adapter</module>
   </modules>
 
   <name>zt-eweb-rbac</name>

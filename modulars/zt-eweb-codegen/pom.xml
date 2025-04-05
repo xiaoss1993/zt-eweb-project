@@ -21,6 +21,7 @@
     <module>zt-eweb-codegen-domain</module>
     <module>zt-eweb-codegen-start</module>
     <module>zt-eweb-codegen-common</module>
+    <module>zt-eweb-codegen-adapter</module>
 
   </modules>
 

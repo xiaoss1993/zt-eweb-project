@@ -46,9 +46,18 @@
   <build>
     <finalName>zt-eweb-rbac</finalName>
     <plugins>
+      <!-- 打包 -->
       <plugin>
-        <artifactId>spring-boot-maven-plugin</artifactId>
         <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>2.7.18</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal> <!-- 将引入的 jar 打入其中 -->
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
     <resources>

@@ -2,17 +2,8 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>zt-eweb-rbac-client</artifactId>
-  <dependencies>
-    <dependency>
-      <artifactId>junit</artifactId>
-      <groupId>junit</groupId>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-
   <modelVersion>4.0.0</modelVersion>
   <name>zt-eweb-rbac-client</name>
-
   <packaging>jar</packaging>
   <parent>
     <artifactId>zt-eweb-rbac</artifactId>
@@ -25,4 +16,26 @@
   </properties>
 
   <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <artifactId>junit</artifactId>
+      <groupId>junit</groupId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.zt.eweb</groupId>
+      <artifactId>zt-eweb-commons</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.zt.eweb</groupId>
+      <artifactId>zt-eweb-mybatis-core</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.zt.eweb</groupId>
+      <artifactId>zt-eweb-cache-core</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+  </dependencies>
 </project>

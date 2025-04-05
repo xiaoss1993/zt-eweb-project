@@ -19,6 +19,8 @@
       <module>zt-eweb-mybatis</module>
       <module>zt-eweb-commons</module>
       <module>zt-eweb-dynamic-datasource</module>
+      <module>zt-eweb-auth</module>
+      <module>zt-eweb-cache</module>
     </modules>
 
     <properties>

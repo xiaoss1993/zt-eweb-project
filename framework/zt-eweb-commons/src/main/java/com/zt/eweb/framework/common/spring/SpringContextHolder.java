@@ -26,6 +26,7 @@ package com.zt.eweb.framework.common.spring;
 import java.util.Map;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
@@ -90,5 +91,20 @@ public class SpringContextHolder implements ApplicationContextAware {
         }
     }
 
+    /**
+     * 动态向Spring注册Bean
+     * <p>
+     * 由{@link org.springframework.beans.factory.BeanFactory} 实现，通过工具开放API
+     *
+     * @param <T>      Bean类型
+     * @param beanName 名称
+     * @param bean     bean
+     * @author shadow
+     * @since 5.4.2
+     */
+    public static <T> void registerBean(String beanName, T bean) {
+        ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;
+        context.getBeanFactory().registerSingleton(beanName, bean);
+    }
 
 }

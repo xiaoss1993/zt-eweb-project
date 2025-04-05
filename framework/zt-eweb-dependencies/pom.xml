@@ -125,6 +125,13 @@
           </exclusion>
         </exclusions>
       </dependency>
+      <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
+      <dependency>
+        <groupId>cn.dev33</groupId>
+        <artifactId>sa-token-spring-boot-starter</artifactId>
+        <version>1.41.0</version>
+      </dependency>
+
       <dependency>
         <groupId>com.github.ifeilong</groupId>
         <artifactId>feilong-spring</artifactId>
@@ -295,6 +302,11 @@
         <version>${commons-io.version}</version>
       </dependency>
       <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>1.9.4</version>
+      </dependency>
+      <dependency>
         <groupId>com.github.jsonzou</groupId>
         <artifactId>jmockdata</artifactId>
         <version>4.3.0</version>
@@ -385,6 +397,12 @@
         <groupId>org.hibernate.validator</groupId>
         <version>${hibernate-validator.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.lmax</groupId>
+        <artifactId>disruptor</artifactId>
+        <version>3.4.4</version>
+      </dependency>
+      <!-- 处理漏洞版本-->
     </dependencies>
   </dependencyManagement>
 </project>
