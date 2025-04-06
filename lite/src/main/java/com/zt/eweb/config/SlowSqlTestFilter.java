@@ -1,16 +1,25 @@
 package com.zt.eweb.config;
 
+import com.alibaba.druid.filter.Filter;
+import com.alibaba.druid.filter.FilterChain;
 import com.alibaba.druid.filter.FilterEventAdapter;
 import com.alibaba.druid.filter.stat.StatFilterMBean;
+import com.alibaba.druid.proxy.jdbc.DataSourceProxy;
 import com.alibaba.druid.proxy.jdbc.JdbcParameter;
 import com.alibaba.druid.proxy.jdbc.ResultSetProxy;
 import com.alibaba.druid.proxy.jdbc.StatementProxy;
 import com.alibaba.druid.support.json.JSONWriter;
+
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.NClob;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+
+import com.baomidou.dynamic.datasource.creator.druid.DruidFilterCallBack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,16 +44,26 @@ public class SlowSqlTestFilter extends FilterEventAdapter implements StatFilterM
   private static final String UPDATE = "update";
   private static final String DELETE = "delete";
 
+  @Override
+  public void init(DataSourceProxy dataSource) {
+    super.init(dataSource);
+  }
+
   private Logger logger = LoggerFactory.getLogger(this.getClass());
 
   @Autowired
-  private HttpServletRequest  request;
+  private HttpServletRequest request;
 
   @Override
   protected void statementExecuteBefore(StatementProxy statement, String sql) {
     super.statementExecuteBefore(statement, sql);
     //sql开始执行的时间
     statement.setLastExecuteStartNano();
+  }
+
+  @Override
+  public boolean statement_execute(FilterChain chain, StatementProxy statement, String sql) throws SQLException {
+    return super.statement_execute(chain, statement, sql);
   }
 
   @Override
@@ -213,4 +232,5 @@ public class SlowSqlTestFilter extends FilterEventAdapter implements StatFilterM
   public void setSlowSqlMillis(long slowSqlMillis) {
 
   }
+
 }
