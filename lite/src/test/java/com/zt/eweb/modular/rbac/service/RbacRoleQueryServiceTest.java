@@ -3,11 +3,11 @@ package com.zt.eweb.modular.rbac.service;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +35,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RbacRoleQueryServiceTest {
+    @Test
+    public void testTinyScript() {
 
+    }
 }
 

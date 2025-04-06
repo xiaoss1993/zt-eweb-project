@@ -1,0 +1,19 @@
+package abc.def;
+
+class NumberList {
+   
+    rate = 3;
+    a1=0,a2='c',a3="hello";
+    
+    print(number){
+       b1=1,b2='0',b3="NEW";
+       println(this.rate);
+       println(number);
+       println(a1);
+       println(a2);
+       println(a3);
+       println(b1);
+       println(b2);
+       println(b3);
+    }
+}
