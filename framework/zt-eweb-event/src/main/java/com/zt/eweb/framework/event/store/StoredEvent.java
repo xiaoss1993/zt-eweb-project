@@ -1,3 +1,5 @@
+
+
 package com.zt.eweb.framework.event.store;
 
 import com.zt.eweb.framework.common.base.model.AssertionConcern;
@@ -7,8 +9,8 @@ import com.zt.eweb.framework.common.utils.json.Json;
 
 import java.util.Date;
 
-public class StoredEvent extends AssertionConcern {
 
+public class StoredEvent extends AssertionConcern {
 
     private String eventBody;
     private long eventId;
