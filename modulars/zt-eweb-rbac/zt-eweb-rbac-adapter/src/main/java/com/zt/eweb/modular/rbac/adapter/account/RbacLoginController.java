@@ -70,7 +70,8 @@ public class RbacLoginController {
     @GetMapping("/v1/userInfo")
     @ApiOperationSupport(order = 2)
     public Response<RbacUserDto> userInfo() {
-        return Response.ok();
+        RbacUserDto rbacUserDto = userQueryService.getUserInfoById(StpUtil.getLoginIdAsLong());
+        return Response.ok(rbacUserDto);
     }
 
     /**

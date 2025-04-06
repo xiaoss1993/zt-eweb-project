@@ -3,30 +3,21 @@ package com.zt.eweb.modular.rbac.client.dto;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * 模块名 : 文件名 : 创建时间 : 2025/4/5 14:46 实现功能 :
- * <p>
- * 作者 : xiaoss 版本 : V1.0.0-SNAPSHOT
- *
- * @see
- * @since ---------------------------------------------------------------- 修改记录 日 期     	版本     修改人
- * 修改内容 2025/4/5      V1.0.0  xiaoss   创建
- * ----------------------------------------------------------------
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class RbacUserDto implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+public class SysUserDTO implements Serializable {
+    private String keyword;
     @TableId(value = "user_id", type = IdType.AUTO)
     private Long userId;
 
@@ -39,8 +30,7 @@ public class RbacUserDto implements Serializable {
 
     private Long deptId;
     @TableField(exist = false)
-    private DeptDto dept;
-
+    private SysDeptDto dept;
     @TableField(exist = false)
     private String deptName;
     private Integer sex;
@@ -62,4 +52,13 @@ public class RbacUserDto implements Serializable {
     @TableField(exist = false)
     private String dataRoleId;
 
+    public QueryWrapper<SysUserDTO> queryWrapper() {
+        QueryWrapper<SysUserDTO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq(StringUtils.isNotEmpty(nickName), "nick_name", nickName);
+        queryWrapper.eq(sex != null, "sex", sex);
+        queryWrapper.and(StringUtils.isNotEmpty(keyword),
+                likeQueryWrapper -> likeQueryWrapper.like("user_name", keyword)
+                        .or().like("nick_name", keyword));
+        return queryWrapper;
+    }
 }
