@@ -47,8 +47,8 @@ public class EasySaTokenListener implements SaTokenListener {
         if (requestUserAgent == null) {
             return;
         }
-        Optional<String> cityInfo = Optional.ofNullable(IP2CityUtil.getCityInfo(EasyHttpRequestUtil.getRemoteIP()));
-        String[] split = cityInfo.isPresent() ? cityInfo.get().split("\\|") : null;
+//        Optional<String> cityInfo = Optional.ofNullable(IP2CityUtil.getCityInfo(EasyHttpRequestUtil.getRemoteIP()));
+//        String[] split = cityInfo.isPresent() ? cityInfo.get().split("\\|") : null;
         ONLINE_USERS.add(OnlineUser.builder()
                 .ip(EasyHttpRequestUtil.getRemoteIP())
                 .loginTime(new Date())

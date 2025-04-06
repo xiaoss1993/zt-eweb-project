@@ -1,5 +1,6 @@
 package com.zt.eweb;
 
+import com.github.dadiyang.autologging.aop.annotation.EnableServiceLog;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,7 +22,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * 2025/3/15      V1.0.0  xiaoss   创建
  * ----------------------------------------------------------------
  */
-
+@EnableServiceLog
 @SpringBootApplication
 @MapperScan(basePackages = {"com.zt.eweb.framework.mybatis.core.mapper", "com.zt.eweb.modular.rbac.infra.dal.mapper", "com.zt.eweb.modular.binder.mapper"})
 public class ZTEwebLiteApplication {

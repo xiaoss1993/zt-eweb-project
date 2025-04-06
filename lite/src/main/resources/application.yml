@@ -40,3 +40,5 @@ easy:
     sql-enabled: true
     xss-enabled: true
     excludes: /flow/*,/sys/nginx/*,/ureport/*,/sys/menu/*
+autolog:
+  app-name: ZTEweb
