@@ -3,13 +3,10 @@ package com.zt.eweb.framework.auth;
 import cn.dev33.satoken.SaManager;
 import cn.dev33.satoken.dao.SaTokenDao;
 import cn.dev33.satoken.listener.SaTokenListener;
-import cn.dev33.satoken.stp.SaLoginModel;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.stp.parameter.SaLoginParameter;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.useragent.UserAgent;
 import com.zt.eweb.framework.auth.util.EasyHttpRequestUtil;
-import com.zt.eweb.framework.common.utils.IP2CityUtil;
 import com.zt.eweb.modular.rbac.client.manager.UserQueryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +15,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -53,9 +49,9 @@ public class EasySaTokenListener implements SaTokenListener {
                 .ip(EasyHttpRequestUtil.getRemoteIP())
                 .loginTime(new Date())
                 .os(requestUserAgent.getOs().getName())
-                .userId((Long) loginId)
+                .userId((String)loginId)
                 .tokenValue(tokenValue)
-                .nickName(sysUserService.getById((Long) loginId))
+                .nickName(sysUserService.getById((String) loginId))
                 .browser(requestUserAgent.getBrowser().getName()).build());
         log.debug("user doLogin,useId:{},token:{}", loginId, tokenValue);
     }

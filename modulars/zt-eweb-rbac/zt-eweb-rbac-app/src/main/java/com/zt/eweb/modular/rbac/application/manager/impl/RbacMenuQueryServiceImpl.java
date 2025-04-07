@@ -1,56 +1,53 @@
 package com.zt.eweb.modular.rbac.application.manager.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
-import cn.hutool.core.lang.tree.TreeUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.zt.eweb.modular.rbac.client.dto.MenuVo;
 import com.zt.eweb.modular.rbac.client.manager.RbacMenuQueryService;
-import com.zt.eweb.modular.rbac.infra.dal.dataobject.SysPower;
-import com.zt.eweb.modular.rbac.infra.dal.dataobject.SysRolePower;
-import com.zt.eweb.modular.rbac.infra.dal.dataobject.SysUserRoleDO;
-import com.zt.eweb.modular.rbac.infra.dal.mapper.SysMenuMapper;
-import com.zt.eweb.modular.rbac.infra.dal.mapper.SysRolePowerMapper;
+import com.zt.eweb.modular.rbac.infra.dal.dataobject.SysPermissionDO;
+import com.zt.eweb.modular.rbac.infra.dal.mapper.SysPermissionMapper;
+import com.zt.eweb.modular.rbac.infra.dal.mapper.SysRolePermissionMapper;
 import com.zt.eweb.modular.rbac.infra.dal.mapper.SysUserRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class RbacMenuQueryServiceImpl implements RbacMenuQueryService {
 
     @Autowired
-    private SysMenuMapper menuMapper;
+    private SysPermissionMapper permissionMapper;
 
     @Autowired
     private SysUserRoleMapper userRoleMapper;
     @Autowired
-    private SysRolePowerMapper rolePowerMapper;
+    private SysRolePermissionMapper  rolePermissionMapper;
 
     @Override
     public List<MenuVo> menu() {
         Long loginId = StpUtil.getLoginIdAsLong();
 
-        List<SysPower> sysPowers = null;
+        List<SysPermissionDO> permissionDOList = null;
         // 超级管理员开玩笑
         if (loginId.longValue() == 1L) {
-            sysPowers = menuMapper.findAllByStatusOrderBySort(true);
+            permissionDOList = permissionMapper.selectList(Wrappers.query());
         } else {
-            sysPowers = getSysMenusPowerByLoginUser(loginId);
+            permissionDOList = permissionMapper.selectList(Wrappers.query());
         }
         List<MenuVo> menuInfo = new ArrayList<>();
-        for (SysPower e : sysPowers) {
+
+        for (SysPermissionDO e : permissionDOList) {
             MenuVo menuVO = new MenuVo();
-            menuVO.setId(e.getMenuId());
-            menuVO.setPid(e.getPid());
-            menuVO.setHref(e.getHref());
-            menuVO.setTitle(e.getTitle());
-            menuVO.setIcon(e.getIcon());
-            menuVO.setOpenType(e.getOpenType());
-            menuVO.setType(e.getType());
-            menuVO.setPowerCode(e.getPowerCode());
+            menuVO.setId(e.getId());
+            menuVO.setPid(e.getParentId());
+            menuVO.setHref(e.getMenuUrl());
+            menuVO.setTitle(e.getPermissionName());
+            menuVO.setIcon(e.getMenuIcon());
+            menuVO.setOpenType(e.getPermissionType());
+            menuVO.setType(e.getPermissionType());
+            menuVO.setPowerCode(e.getPermissionCodes());
             menuInfo.add(menuVO);
         }
 
@@ -79,12 +76,4 @@ public class RbacMenuQueryServiceImpl implements RbacMenuQueryService {
         return parent;
     }
 
-    private List<SysPower> getSysMenusPowerByLoginUser(Long loginId) {
-        List<SysUserRoleDO> userRoleDOList = userRoleMapper.selectList(Wrappers.<SysUserRoleDO>lambdaQuery().eq(SysUserRoleDO::getUserId, loginId));
-
-        List<Long> roleIds = userRoleDOList.stream().map(sysUserRole -> Long.valueOf(sysUserRole.getRoleId())).collect(Collectors.toList());
-        List<SysRolePower> rolePowerLists = rolePowerMapper.selectList(Wrappers.<SysRolePower>lambdaQuery().in(SysRolePower::getRoleId, roleIds));
-        List<Long> powerIds = rolePowerLists.stream().map(sysRolePower -> sysRolePower.getPowerId()).collect(Collectors.toList());
-        return menuMapper.selectList(Wrappers.<SysPower>lambdaQuery().in(SysPower::getMenuId, powerIds).eq(SysPower::getEnable, true).orderByAsc(SysPower::getSort));
-    }
 }

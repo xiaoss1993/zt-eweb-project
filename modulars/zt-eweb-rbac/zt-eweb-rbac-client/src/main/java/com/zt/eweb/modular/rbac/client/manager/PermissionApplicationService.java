@@ -1,5 +1,7 @@
 package com.zt.eweb.modular.rbac.client.manager;
 
+import com.zt.eweb.modular.rbac.client.command.PermissionCommand;
+
 /**
  * 模块名 : 文件名 : 创建时间 : 2025/4/5 14:29 实现功能 :
  * <p>
@@ -12,4 +14,9 @@ package com.zt.eweb.modular.rbac.client.manager;
  */
 public interface PermissionApplicationService {
 
+    void saveOrUpdate(PermissionCommand permissionCommand);
+
+    void delete(String id);
+
+    void disable(String id);
 }

@@ -3,9 +3,9 @@ package com.zt.eweb.modular.rbac.infra.dal.dataobject;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.zt.eweb.framework.mybatis.core.entity.BaseEntity;
-import java.util.Date;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * 系统验证码DO
@@ -15,8 +15,10 @@ import lombok.Data;
  **/
 @Data
 @TableName("sys_captcha")
-public class SysCaptchaDO extends BaseEntity<String> {
+public class SysCaptchaDO {
 
+    @TableId(type = IdType.INPUT)
+    private String uuid;
     /**
      * 验证码
      */

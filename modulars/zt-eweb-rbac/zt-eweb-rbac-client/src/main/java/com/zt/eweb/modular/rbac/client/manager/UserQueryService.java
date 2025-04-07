@@ -1,6 +1,5 @@
 package com.zt.eweb.modular.rbac.client.manager;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zt.eweb.modular.rbac.client.dto.RbacUserDto;
@@ -21,9 +20,9 @@ import java.util.List;
  */
 public interface UserQueryService {
 
-    List<UserDataPower> getUserDataPowers(Long userId);
+    List<UserDataPower> getUserDataPowers(String userId);
 
-    String getById(Long loginId);
+    String getById(String loginId);
 
     List<String> getPowerCodesByUserIdAndPowerType(Long userId, Integer roleType);
 

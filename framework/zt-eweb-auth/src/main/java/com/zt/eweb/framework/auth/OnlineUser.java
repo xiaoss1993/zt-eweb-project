@@ -10,7 +10,7 @@ import java.util.Date;
 @Builder
 public class OnlineUser {
     private String loginId;
-    private Long userId;
+    private String userId;
     private String nickName;
     private String ip;
     private String os;

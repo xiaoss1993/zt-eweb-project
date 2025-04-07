@@ -1,5 +1,9 @@
 package com.zt.eweb.modular.rbac.client.manager;
 
+import com.zt.eweb.modular.rbac.client.command.RoleCommand;
+
+import java.util.List;
+
 /**
  * 模块名 : 文件名 : 创建时间 : 2025/4/5 14:29 实现功能 :
  * <p>
@@ -12,4 +16,9 @@ package com.zt.eweb.modular.rbac.client.manager;
  */
 public interface RoleApplicationService {
 
+    void saveOrUpdate(RoleCommand roleCommand);
+
+    void deleteBatch(List<String> list);
+
+    void disable(String id);
 }

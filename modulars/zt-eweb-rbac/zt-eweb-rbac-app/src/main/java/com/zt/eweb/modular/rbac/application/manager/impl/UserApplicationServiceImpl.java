@@ -2,7 +2,6 @@ package com.zt.eweb.modular.rbac.application.manager.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.SecureUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.zt.eweb.framework.cache.IEasyCache;
 import com.zt.eweb.framework.common.base.result.Response;
@@ -47,22 +46,20 @@ public class UserApplicationServiceImpl implements UserApplicationService {
         // 单机版：在map中创建了会话，token id等映射关系 // 写入cookie
         SysUserDO sysUser = userMapper.selectOne(Wrappers.<SysUserDO>lambdaQuery()
                 .eq(SysUserDO::getUserName, loginDto.getUsername())
-                .eq(SysUserDO::getPassword, SecureUtil.sha256(loginDto.getPassword())));
+                .eq(SysUserDO::getPassword, loginDto.getPassword()));
 
         if (sysUser == null) {
             return Response.error500("用户名或密码不正确");
         }
-        if (sysUser.getEnable() == 0) {
+        if ("-1".equals(sysUser.getStatus())) {
             return Response.error500("用户已被禁用");
         }
-        StpUtil.login(sysUser.getUserId());
+        StpUtil.login(sysUser.getAccountId());
         // 获取用户的数据权限
-        List<UserDataPower> userDataPowers = userQueryService.getUserDataPowers(sysUser.getUserId());
+        List<UserDataPower> userDataPowers = userQueryService.getUserDataPowers(sysUser.getAccountId());
 
         UserInfoAndPowers.UserInfoAndPowersBuilder userInfoAndPowersBuilder = UserInfoAndPowers.builder()
-                .deptId(sysUser.getDeptId())
-                .userId(sysUser.getUserId())
-                .nickName(sysUser.getNickName())
+                .nickName(sysUser.getUserName())
                 .userDataPowers(userDataPowers);
         StpUtil.getSession().set(EasyAdminConstants.CURRENT_USER, userInfoAndPowersBuilder.build());
         return Response.ok(StpUtil.getTokenInfo());

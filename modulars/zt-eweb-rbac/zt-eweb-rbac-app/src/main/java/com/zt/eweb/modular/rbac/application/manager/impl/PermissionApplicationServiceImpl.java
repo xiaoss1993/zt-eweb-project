@@ -1,5 +1,6 @@
 package com.zt.eweb.modular.rbac.application.manager.impl;
 
+import com.zt.eweb.modular.rbac.client.command.PermissionCommand;
 import com.zt.eweb.modular.rbac.client.manager.PermissionApplicationService;
 import org.springframework.stereotype.Service;
 
@@ -12,4 +13,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class PermissionApplicationServiceImpl implements PermissionApplicationService {
 
+    @Override
+    public void saveOrUpdate(PermissionCommand permissionCommand) {
+
+    }
+
+    @Override
+    public void delete(String id) {
+
+    }
+
+    @Override
+    public void disable(String id) {
+
+    }
 }

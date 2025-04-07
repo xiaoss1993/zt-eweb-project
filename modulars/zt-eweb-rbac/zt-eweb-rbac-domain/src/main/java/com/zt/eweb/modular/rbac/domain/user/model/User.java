@@ -3,6 +3,8 @@ package com.zt.eweb.modular.rbac.domain.user.model;
 import com.zt.eweb.framework.common.base.domain.Entity;
 import com.zt.eweb.framework.common.base.domain.StatusEnum;
 import com.zt.eweb.modular.rbac.domain.role.model.RoleId;
+import com.zt.eweb.modular.rbac.domain.tenant.TenantId;
+
 import java.util.List;
 
 /**
@@ -27,6 +29,10 @@ public class User implements Entity<User> {
      * 状态
      */
     private StatusEnum status;
+    /**
+     * 当前租户
+     */
+    private TenantId tenantId;
 
     /**
      * 账号
@@ -38,7 +44,14 @@ public class User implements Entity<User> {
      * 角色Id列表
      */
     private List<RoleId> roleIds;
-
+    public User(UserId userId, UserName userName, StatusEnum status, Account account, TenantId tenantId, List<RoleId> roleIds) {
+        this.userId = userId;
+        this.userName = userName;
+        this.status = status;
+        this.account = account;
+        this.tenantId = tenantId;
+        this.roleIds = roleIds;
+    }
 
     public User(UserId userId, UserName userName, StatusEnum status, Account account, List<RoleId> roleIds) {
         this.userId = userId;

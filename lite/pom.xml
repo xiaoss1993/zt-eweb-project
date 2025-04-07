@@ -53,7 +53,17 @@
         </dependency>
         <dependency>
             <groupId>com.zt.eweb</groupId>
+            <artifactId>zt-eweb-rbac-app</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zt.eweb</groupId>
             <artifactId>zt-eweb-meta-adapter</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zt.eweb</groupId>
+            <artifactId>zt-eweb-meta-app</artifactId>
             <version>1.1.0</version>
         </dependency>
         <dependency>
@@ -62,32 +72,9 @@
             <version>1.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.tinygroup</groupId>
-            <artifactId>org.tinygroup.tinyscript</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.tinygroup</groupId>
-            <artifactId>org.tinygroup.tinyrunner</artifactId>
-            <version>${tiny_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.tinygroup</groupId>
-            <artifactId>org.tinygroup.metadata</artifactId>
-            <version>${tiny_version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.tinygroup</groupId>
-            <artifactId>org.tinygroup.database</artifactId>
-            <version>${tiny_version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.tinygroup</groupId>
-            <artifactId>org.tinygroup.databasechange</artifactId>
-            <version>${tiny_version}</version>
-            <scope>test</scope>
+            <groupId>com.zt.eweb</groupId>
+            <artifactId>zt-eweb-codegen-app</artifactId>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>

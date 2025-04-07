@@ -1,30 +1,21 @@
 package com.zt.eweb.modular.rbac.adapter.user;
 
-import cn.dev33.satoken.annotation.SaCheckPermission;
-import cn.dev33.satoken.annotation.SaCheckRole;
-import cn.dev33.satoken.stp.StpUtil;
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.hutool.crypto.SecureUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zt.eweb.framework.common.base.result.PageResponse;
 import com.zt.eweb.framework.common.base.result.PageVO;
-import com.zt.eweb.framework.common.base.result.Response;
 import com.zt.eweb.modular.rbac.client.dto.SysUserDTO;
 import com.zt.eweb.modular.rbac.client.manager.UserApplicationService;
 import com.zt.eweb.modular.rbac.client.manager.UserQueryService;
-import com.zt.eweb.modular.rbac.infra.dal.dataobject.SysUserDO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 /**
  * 模块名 : 文件名 : 创建时间 : 2025/4/4 22:08 实现功能 :
@@ -38,12 +29,12 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/sys/user")
+@AllArgsConstructor
 public class RbacUserController {
 
-    @Autowired
-    UserApplicationService userApplicationService;
-    @Autowired
-    private UserQueryService userQueryService;
+
+    private final UserApplicationService userApplicationService;
+    private final UserQueryService userQueryService;
 
     /**
      * 分页查询

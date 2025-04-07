@@ -1,12 +1,8 @@
 package com.zt.eweb.modular.rbac.infra.dal.dataobject;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.zt.eweb.framework.mybatis.core.entity.BaseEntity;
+import com.zt.eweb.framework.mybatis.core.entity.BaseModel;
 import lombok.Data;
-
-import java.io.Serializable;
 
 /**
  * 用户角色关联DO
@@ -16,14 +12,25 @@ import java.io.Serializable;
  **/
 @Data
 @TableName("sys_user_role")
-public class SysUserRoleDO implements Serializable {
+public class SysUserRoleDO extends BaseModel {
 
-    private static final long serialVersionUID = 1L;
+    /**
+     * 用户ID
+     */
+    private String userId;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    /**
+     * 角色ID
+     */
+    private String roleId;
 
-    private Long userId;
+    /**
+     * 租户ID
+     */
+    private String tenantId;
 
-    private Long roleId;
+    /**
+     * 备注
+     */
+    private String remarks;
 }

@@ -2,8 +2,9 @@ package com.zt.eweb.modular.rbac.infra.dal.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zt.eweb.modular.rbac.infra.dal.dataobject.SysRolePermissionDO;
-import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * 角色权限关联Mapper

@@ -8,9 +8,9 @@ import java.util.List;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MenuVo {
-    private Long id;
+    private String id;
 
-    private Long pid;
+    private String pid;
 
     private String title;
 
@@ -20,7 +20,7 @@ public class MenuVo {
 
     private String openType;
 
-    private Integer type;
+    private String type;
 
     private String powerCode;
 
