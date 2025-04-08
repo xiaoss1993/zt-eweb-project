@@ -22,6 +22,7 @@
         <module>zt-eweb-auth</module>
         <module>zt-eweb-cache</module>
         <module>zt-eweb-event</module>
+        <module>zt-eweb-annotation</module>
     </modules>
 
     <properties>
