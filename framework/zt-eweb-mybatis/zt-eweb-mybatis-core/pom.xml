@@ -52,25 +52,30 @@
     </dependency>
     <dependency>
       <artifactId>slf4j-api</artifactId>
-      <groupId>org.slf4j</groupId>
+        <groupId>org.slf4j</groupId>
     </dependency>
-    <dependency>
-      <artifactId>mybatis-plus</artifactId>
-      <groupId>com.baomidou</groupId>
-    </dependency>
-    <dependency>
-      <groupId>com.baomidou</groupId>
-      <artifactId>mybatis-plus-extension</artifactId>
-    </dependency>
-    <dependency>
-      <artifactId>mybatis-spring</artifactId>
-      <groupId>org.mybatis</groupId>
-    </dependency>
-    <dependency>
-      <artifactId>commons-lang3</artifactId>
-      <groupId>org.apache.commons</groupId>
-    </dependency>
-    <dependency>
+      <dependency>
+          <artifactId>mybatis-plus</artifactId>
+          <groupId>com.baomidou</groupId>
+      </dependency>
+      <dependency>
+          <groupId>com.baomidou</groupId>
+          <artifactId>mybatis-plus-extension</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.baomidou</groupId>
+          <artifactId>mybatis-plus-jsqlparser-4.9</artifactId>
+      </dependency>
+
+      <dependency>
+          <artifactId>mybatis-spring</artifactId>
+          <groupId>org.mybatis</groupId>
+      </dependency>
+      <dependency>
+          <artifactId>commons-lang3</artifactId>
+          <groupId>org.apache.commons</groupId>
+      </dependency>
+      <dependency>
       <artifactId>commons-io</artifactId>
       <groupId>commons-io</groupId>
     </dependency>

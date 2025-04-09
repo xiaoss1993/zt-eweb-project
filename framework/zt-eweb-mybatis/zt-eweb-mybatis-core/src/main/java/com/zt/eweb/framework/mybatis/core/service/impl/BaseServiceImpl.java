@@ -105,8 +105,8 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
 
   @Override
   public <FT> FT getValueOfField(Serializable idVal, SFunction<T, FT> getterFn) {
-    PropInfo propInfo = BindingCacheManager.getPropInfoByClass(entityClass);
-    String fetchCol = propInfo.getColumnByField(BeanUtils.convertSFunctionToFieldName(getterFn));
+    PropInfo propInfo = BindingCacheManager.getPropInfoByClass(getEntityClass());
+      String fetchCol = propInfo.getColumnByField(BeanUtils.convertSFunctionToFieldName(getterFn));
     QueryWrapper<T> queryWrapper = new QueryWrapper<T>()
         .select(propInfo.getIdColumn(), fetchCol)
         .eq(propInfo.getIdColumn(), idVal);
@@ -208,7 +208,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
    * @param entityIds
    */
   protected void beforeDelete(Object entityIds) {
-    String pk = ContextHolder.getIdFieldName(entityClass);
+      String pk = ContextHolder.getIdFieldName(getEntityClass());
     beforeDelete(pk, entityIds);
   }
 
@@ -218,7 +218,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
    * @param entityIds
    */
   protected void afterDelete(Object entityIds) {
-    String pk = ContextHolder.getIdFieldName(entityClass);
+      String pk = ContextHolder.getIdFieldName(getEntityClass());
     afterDelete(pk, entityIds);
   }
 
@@ -324,7 +324,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     if (entity instanceof BaseTreeEntity) {
       fillTreeNodeParentPath(entity);
     }
-    List<String> maskFields = ParserCache.getDataMaskFieldList(entityClass);
+      List<String> maskFields = ParserCache.getDataMaskFieldList(getEntityClass());
     if (V.notEmpty(maskFields)) {
       for (String maskField : maskFields) {
         Object value = BeanUtils.getProperty(entity, maskField);
@@ -443,8 +443,8 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
   @Override
   public boolean deleteEntity(String fieldKey, Object fieldVal) {
     // 获取主键的关联属性
-    PropInfo propInfo = BindingCacheManager.getPropInfoByClass(entityClass);
-    String column = propInfo.getColumnByField(fieldKey);
+      PropInfo propInfo = BindingCacheManager.getPropInfoByClass(getEntityClass());
+      String column = propInfo.getColumnByField(fieldKey);
     if (column == null) {
       column = fieldKey;
     }
@@ -737,12 +737,12 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
   @Override
   public boolean deleteEntity(Serializable id) {
     // 树结构，仅允许叶子节点进行删除操作
-    if (BaseTreeEntity.class.isAssignableFrom(entityClass)) {
-      QueryWrapper<T> wrapper = new QueryWrapper<T>().eq(Cons.ColumnName.parent_id.name(), id);
-      if (exists(wrapper)) {
-        throw new BusinessException(Status.FAIL_VALIDATION, "当前节点下存在下级节点，不允许被删除！");
+      if (BaseTreeEntity.class.isAssignableFrom(getEntityClass())) {
+          QueryWrapper<T> wrapper = new QueryWrapper<T>().eq(Cons.ColumnName.parent_id.name(), id);
+          if (exists(wrapper)) {
+              throw new BusinessException(Status.FAIL_VALIDATION, "当前节点下存在下级节点，不允许被删除！");
+          }
       }
-    }
     this.beforeDelete(id);
     boolean success = super.removeById(id);
     if (success) {
@@ -757,15 +757,15 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     // 执行查询获取匹配ids
     // 优化SQL，只查询id字段
     if (queryWrapper instanceof QueryWrapper) {
-      String idCol = ContextHolder.getIdColumnName(entityClass);
+        String idCol = ContextHolder.getIdColumnName(getEntityClass());
       ((QueryWrapper) queryWrapper).select(idCol);
     }
     List<T> entityList = getEntityList(queryWrapper);
     if (V.isEmpty(entityList)) {
       return false;
     }
-    String pk = ContextHolder.getIdFieldName(entityClass);
-    List<String> entityIds = BeanUtils.collectToList(entityList, pk);
+      String pk = ContextHolder.getIdFieldName(getEntityClass());
+      List<String> entityIds = BeanUtils.collectToList(entityList, pk);
     this.beforeDelete(entityIds);
     boolean success = super.removeByIds(entityIds);
     if (success) {
@@ -780,7 +780,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     if (V.isEmpty(entityIds)) {
       return false;
     }
-    String pk = ContextHolder.getIdFieldName(entityClass);
+      String pk = ContextHolder.getIdFieldName(getEntityClass());
     this.beforeDelete(pk, entityIds);
     boolean success = super.removeByIds(entityIds);
     if (success) {
@@ -817,16 +817,16 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     }
     // 如果是动态join，则调用JoinsBinder
     if (queryWrapper instanceof DynamicJoinQueryWrapper) {
-      return Binder.joinQueryList((DynamicJoinQueryWrapper) queryWrapper, entityClass, pagination);
+        return Binder.joinQueryList((DynamicJoinQueryWrapper) queryWrapper, getEntityClass(), pagination);
     } else if (queryWrapper instanceof QueryWrapper) {
       QueryWrapper mpQueryWrapper = ((QueryWrapper) queryWrapper);
       if (mpQueryWrapper.getEntityClass() == null) {
-        mpQueryWrapper.setEntityClass(entityClass);
+          mpQueryWrapper.setEntityClass(getEntityClass());
       }
     } else if (queryWrapper instanceof LambdaQueryWrapper) {
       LambdaQueryWrapper mpQueryWrapper = ((LambdaQueryWrapper) queryWrapper);
       if (mpQueryWrapper.getEntityClass() == null) {
-        mpQueryWrapper.setEntityClass(entityClass);
+          mpQueryWrapper.setEntityClass(getEntityClass());
       }
     }
     // 否则，调用MP默认实现
@@ -877,7 +877,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     // 如果是动态join，则调用JoinsBinder
     query.select(getterFn);
     if (queryWrapper instanceof DynamicJoinQueryWrapper) {
-      entityList = Binder.joinQueryList((DynamicJoinQueryWrapper) queryWrapper, entityClass, null);
+        entityList = Binder.joinQueryList((DynamicJoinQueryWrapper) queryWrapper, getEntityClass(), null);
     } else {
       entityList = getEntityList(query);
     }
@@ -910,7 +910,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     if (queryWrapper instanceof DynamicJoinQueryWrapper) {
       Pagination pagination = new Pagination();
       pagination.setPageIndex(1).setPageSize(limitCount);
-      return Binder.joinQueryList((DynamicJoinQueryWrapper) queryWrapper, entityClass, pagination);
+        return Binder.joinQueryList((DynamicJoinQueryWrapper) queryWrapper, getEntityClass(), pagination);
     }
     Page<T> page = new Page<>(1, limitCount);
     page.setSearchCount(false);
@@ -922,7 +922,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
   public T getSingleEntity(Wrapper queryWrapper) {
     // 如果是动态join，则调用JoinsBinder
     if (queryWrapper instanceof DynamicJoinQueryWrapper) {
-      return (T) Binder.joinQueryOne((DynamicJoinQueryWrapper) queryWrapper, entityClass);
+        return (T) Binder.joinQueryOne((DynamicJoinQueryWrapper) queryWrapper, getEntityClass());
     }
     List<T> entityList = getEntityListLimit(queryWrapper, 1);
     if (V.notEmpty(entityList)) {
@@ -963,7 +963,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     String column = getColumnByField(field);
     QueryWrapper<Object> wrapper = Wrappers.query().eq(column, value);
     if (V.notEmpty(id)) {
-      String pk = ContextHolder.getIdColumnName(entityClass);
+        String pk = ContextHolder.getIdColumnName(getEntityClass());
       wrapper.ne(pk, id);
     }
     return !exists(wrapper);
@@ -971,8 +971,8 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
 
   @Override
   public List<T> getEntityListByIds(List ids) {
-    QueryWrapper<T> queryWrapper = new QueryWrapper();
-    String pk = ContextHolder.getIdColumnName(entityClass);
+      QueryWrapper<T> queryWrapper = new QueryWrapper();
+      String pk = ContextHolder.getIdColumnName(getEntityClass());
     queryWrapper.in(pk, ids);
     return getEntityList(queryWrapper);
   }
@@ -1021,9 +1021,9 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     String[] selectArray = sqlSelect.split(Cons.SEPARATOR_COMMA);
     // 是否有ext字段
     boolean hasExt = selectArray.length > 2;
-    List<LabelValue> labelValueList = new ArrayList<>(entityList.size());
-    PropInfo propInfo = BindingCacheManager.getPropInfoByClass(entityClass);
-    boolean hasParentNode = propInfo.containsField(Cons.FieldName.parentId.name());
+      List<LabelValue> labelValueList = new ArrayList<>(entityList.size());
+      PropInfo propInfo = BindingCacheManager.getPropInfoByClass(getEntityClass());
+      boolean hasParentNode = propInfo.containsField(Cons.FieldName.parentId.name());
     for (T entity : entityList) {
       if (V.isEmpty(entity)) {
         log.warn("getLabelValueList查询指定字段 {} 在数据库当前记录所有字段均为空值，已自动忽略",
@@ -1064,9 +1064,9 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     if (V.isEmpty(entityIds)) {
       return Collections.emptyMap();
     }
-    EntityInfoCache entityInfo = BindingCacheManager.getEntityInfoByClass(entityClass);
-    String columnName = entityInfo.getColumnByField(
-        BeanUtils.convertSFunctionToFieldName(getterFn));
+      EntityInfoCache entityInfo = BindingCacheManager.getEntityInfoByClass(getEntityClass());
+      String columnName = entityInfo.getColumnByField(
+              BeanUtils.convertSFunctionToFieldName(getterFn));
     QueryWrapper<T> queryWrapper = new QueryWrapper<T>().select(
         entityInfo.getIdColumn(),
         columnName
@@ -1087,12 +1087,12 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
 
   @Override
   public Map<String, T> getId2EntityMap(List entityIds, SFunction<T, ?>... getterFns) {
-    QueryWrapper<T> queryWrapper = new QueryWrapper();
-    String pk = ContextHolder.getIdColumnName(entityClass);
+      QueryWrapper<T> queryWrapper = new QueryWrapper();
+      String pk = ContextHolder.getIdColumnName(getEntityClass());
     if (V.notEmpty(getterFns)) {
       List<String> columns = new ArrayList<>(getterFns.length + 1);
       columns.add(pk);
-      EntityInfoCache entityInfo = BindingCacheManager.getEntityInfoByClass(entityClass);
+        EntityInfoCache entityInfo = BindingCacheManager.getEntityInfoByClass(getEntityClass());
       for (SFunction<T, ?> getter : getterFns) {
         String fieldName = BeanUtils.convertSFunctionToFieldName(getter);
         String columnName = entityInfo.getColumnByField(fieldName);
@@ -1152,7 +1152,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
   public <VO> List<VO> getViewObjectList(Wrapper queryWrapper, Pagination pagination,
       Class<VO> voClass) {
     if (queryWrapper != null && queryWrapper.getSqlSelect() == null) {
-      WrapperHelper.optimizeSelect(queryWrapper, entityClass, voClass);
+        WrapperHelper.optimizeSelect(queryWrapper, getEntityClass(), voClass);
     }
     List<T> entityList = getEntityList(queryWrapper, pagination);
     // 自动转换为VO并绑定关联对象
@@ -1164,7 +1164,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
       SFunction<T, String> getParentIdsPath,
       @Nullable SFunction<T, Comparable<?>> getSortId) {
     LambdaQueryWrapper<T> queryWrapper = Wrappers.lambdaQuery();
-    queryWrapper.select(entityClass, WrapperHelper.buildSelectPredicate(voClass));
+      queryWrapper.select(getEntityClass(), WrapperHelper.buildSelectPredicate(voClass));
     // 排序
     queryWrapper.orderByAsc(getSortId != null, getSortId);
 
@@ -1224,8 +1224,8 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     AtomicLong start = new AtomicLong(moveUp ? newSortId : oldSortId);
     long end = !moveUp ? newSortId : (levelChange ? Long.MAX_VALUE : oldSortId);
 
-    PropInfo propInfo = BindingCacheManager.getPropInfoByClass(entityClass);
-    String idColumn = propInfo.getIdColumn();
+      PropInfo propInfo = BindingCacheManager.getPropInfoByClass(getEntityClass());
+      String idColumn = propInfo.getIdColumn();
     String idFieldName = propInfo.getIdFieldName();
 
     LambdaQueryWrapper<T> query = Wrappers.<T>query().select(idColumn).lambda();
@@ -1259,7 +1259,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
     Function<Object, T> addEntity = idValue -> {
       T entity;
       try {
-        entity = entityClass.newInstance();
+          entity = getEntityClass().newInstance();
       } catch (InstantiationException | IllegalAccessException e) {
         throw new RuntimeException(e);
       }
@@ -1343,7 +1343,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
    * @return
    */
   protected Page<T> convertToIPage(Pagination pagination) {
-    return ServiceAdaptor.convertToIPage(pagination, entityClass);
+      return ServiceAdaptor.convertToIPage(pagination, getEntityClass());
   }
 
   /***
@@ -1355,7 +1355,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
    */
   @Deprecated
   protected Page<T> convertToIPage(Wrapper queryWrapper, Pagination pagination) {
-    return ServiceAdaptor.convertToIPage(pagination, entityClass);
+      return ServiceAdaptor.convertToIPage(pagination, getEntityClass());
   }
 
   /**
@@ -1364,7 +1364,7 @@ public class BaseServiceImpl<M extends BaseCrudMapper<T>, T> extends ServiceImpl
    * @return
    */
   protected String getColumnByField(String fieldName) {
-    PropInfo propInfo = BindingCacheManager.getPropInfoByClass(entityClass);
+      PropInfo propInfo = BindingCacheManager.getPropInfoByClass(getEntityClass());
     return propInfo.getColumnByField(fieldName);
   }
 

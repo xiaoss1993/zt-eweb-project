@@ -2,14 +2,6 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>zt-eweb-rbac</artifactId>
-  <dependencies>
-    <dependency>
-      <artifactId>junit</artifactId>
-      <groupId>junit</groupId>
-      <scope>test</scope>
-      <version>3.8.1</version>
-    </dependency>
-  </dependencies>
 
   <modelVersion>4.0.0</modelVersion>
   <modules>

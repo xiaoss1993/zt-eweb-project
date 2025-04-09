@@ -51,8 +51,9 @@ public class LongListTypeHandler  extends AbstractJsonTypeHandler<List<Long>> {
   }
 
   @Override
-  public String toJson(Object obj) {
-    return CollUtil.join(parse(StrUtil.toString(obj)), COMMA);
-
+  public String toJson(List<Long> obj) {
+      return CollUtil.join(obj, COMMA);
   }
+
+
 }

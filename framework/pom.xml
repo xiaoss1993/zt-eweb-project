@@ -30,6 +30,20 @@
         <module>zt-eweb-jackson</module>
         <module>zt-eweb-super-query</module>
         <module>zt-eweb-data-perm</module>
+        <module>zt-eweb-spring-boot-starter-biz-data-permission</module>
+        <module>zt-eweb-spring-boot-starter-biz-ip</module>
+        <module>zt-eweb-common</module>
+        <module>zt-eweb-spring-boot-starter-biz-tenant</module>
+        <module>zt-eweb-spring-boot-starter-excel</module>
+        <module>zt-eweb-spring-boot-starter-job</module>
+        <module>zt-eweb-spring-boot-starter-monitor</module>
+        <module>zt-eweb-spring-boot-starter-mq</module>
+        <module>zt-eweb-spring-boot-starter-mybatis</module>
+        <module>zt-eweb-spring-boot-starter-protection</module>
+        <module>zt-eweb-spring-boot-starter-redis</module>
+        <module>zt-eweb-spring-boot-starter-security</module>
+        <module>zt-eweb-spring-boot-starter-web</module>
+        <module>zt-eweb-spring-boot-starter-websocket</module>
     </modules>
 
     <properties>
