@@ -2,43 +2,23 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>zt-eweb-mybatis-core</artifactId>
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>3.8.1</version>
-      </plugin>
-    </plugins>
-    <resources>
-      <resource>
-        <directory>src/main/java</directory>
-        <filtering>false</filtering>
-        <includes>
-          <include>**/*.xml</include>
-          <include>**/*.dtd</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-      <resource>
-        <directory>src/test/java</directory>
-        <filtering>false</filtering>
-        <includes>
-          <include>**/*.xml</include>
-          <include>**/*.dtd</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>src/test/resources</directory>
-      </resource>
-    </resources>
-  </build>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>zt-eweb-mybatis-core</name>
+  <packaging>jar</packaging>
+
+  <parent>
+    <artifactId>zt-eweb-mybatis</artifactId>
+    <groupId>com.zt.eweb</groupId>
+    <version>1.1.0</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <url>http://maven.apache.org</url>
 
   <dependencies>
     <dependency>
@@ -79,6 +59,10 @@
       <groupId>com.baomidou</groupId>
     </dependency>
     <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-extension</artifactId>
+    </dependency>
+    <dependency>
       <artifactId>mybatis-spring</artifactId>
       <groupId>org.mybatis</groupId>
     </dependency>
@@ -100,21 +84,48 @@
       <artifactId>lombok</artifactId>
       <groupId>org.projectlombok</groupId>
     </dependency>
+    <dependency>
+      <groupId>com.zt.eweb</groupId>
+      <artifactId>zt-eweb-jackson</artifactId>
+      <version>1.1.0</version>
+    </dependency>
   </dependencies>
-  <modelVersion>4.0.0</modelVersion>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.8.1</version>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.dtd</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/test/java</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.dtd</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/test/resources</directory>
+      </resource>
+    </resources>
+  </build>
 
-  <name>zt-eweb-mybatis-core</name>
-  <packaging>jar</packaging>
-
-  <parent>
-    <artifactId>zt-eweb-mybatis</artifactId>
-    <groupId>com.zt.eweb</groupId>
-    <version>1.1.0</version>
-  </parent>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <url>http://maven.apache.org</url>
 </project>

@@ -3,7 +3,6 @@ package com.zt.eweb.framework.mybatis.starter;
 
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
@@ -29,6 +28,7 @@ import com.zt.eweb.framework.mybatis.core.data.protect.DataEncryptHandler;
 import com.zt.eweb.framework.mybatis.core.data.protect.DataMaskHandler;
 import com.zt.eweb.framework.mybatis.core.data.protect.DefaultDataEncryptHandler;
 import com.zt.eweb.framework.mybatis.core.data.protect.DefaultDataMaskHandler;
+import com.zt.eweb.framework.mybatis.core.interceptor.MpInterceptor;
 import com.zt.eweb.framework.mybatis.core.serial.deserializer.LocalDateTimeDeserializer;
 import com.zt.eweb.framework.mybatis.core.serial.serializer.BigDecimal2StringSerializer;
 import com.zt.eweb.framework.mybatis.core.util.D;
@@ -39,7 +39,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.LocalDateTypeHandler;
@@ -151,13 +153,17 @@ public class CoreAutoConfig implements WebMvcConfigurer {
   }
 
   /**
-   * Mybatis-plus分页插件
+   * 使用多个功能需要注意顺序关系,建议使用如下顺序 多租户,动态表名 分页,乐观锁 sql性能规范,防止全表更新与删除 总结:
+   * 对sql进行单次改造的优先放入,不对sql进行改造的最后放入
    */
   @Bean
-  @ConditionalOnMissingBean
-  public MybatisPlusInterceptor mybatisPlusInterceptor() {
+  public MybatisPlusInterceptor mybatisPlusInterceptor(List<MpInterceptor> interceptors) {
     MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-    interceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+    interceptors.stream()
+        .sorted(Comparator.comparing(MpInterceptor::getSortNo))
+        .map(MpInterceptor::getInnerInterceptor)
+        .forEach(interceptor::addInnerInterceptor);
+
     return interceptor;
   }
 

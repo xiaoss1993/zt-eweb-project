@@ -31,7 +31,7 @@ spring:
       max-request-size: "1000MB"
   redis:
     password: 123456
-    port: 6379
+    port: 10379
     host: localhost
 
 easy:

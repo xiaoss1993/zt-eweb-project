@@ -23,6 +23,13 @@
         <module>zt-eweb-cache</module>
         <module>zt-eweb-event</module>
         <module>zt-eweb-annotation</module>
+        <module>zt-eweb-translate</module>
+        <module>zt-eweb-exception-handler</module>
+        <module>zt-eweb-header-holder</module>
+        <module>zt-eweb-spring</module>
+        <module>zt-eweb-jackson</module>
+        <module>zt-eweb-super-query</module>
+        <module>zt-eweb-data-perm</module>
     </modules>
 
     <properties>

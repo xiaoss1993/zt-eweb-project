@@ -20,6 +20,7 @@
     <module>zt-eweb-rbac-client</module>
     <module>zt-eweb-rbac-start</module>
     <module>zt-eweb-rbac-adapter</module>
+    <module>zt-eweb-rbac-common</module>
   </modules>
 
   <name>zt-eweb-rbac</name>

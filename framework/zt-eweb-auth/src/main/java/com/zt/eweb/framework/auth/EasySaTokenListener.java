@@ -7,16 +7,15 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.stp.parameter.SaLoginParameter;
 import cn.hutool.http.useragent.UserAgent;
 import com.zt.eweb.framework.auth.util.EasyHttpRequestUtil;
-import com.zt.eweb.modular.rbac.client.manager.UserQueryService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
+import com.zt.eweb.modular.rbac.client.user.UserQueryService;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
+import javax.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * 自定义侦听器的实现
@@ -51,7 +50,6 @@ public class EasySaTokenListener implements SaTokenListener {
                 .os(requestUserAgent.getOs().getName())
                 .userId((String)loginId)
                 .tokenValue(tokenValue)
-                .nickName(sysUserService.getById((String) loginId))
                 .browser(requestUserAgent.getBrowser().getName()).build());
         log.debug("user doLogin,useId:{},token:{}", loginId, tokenValue);
     }

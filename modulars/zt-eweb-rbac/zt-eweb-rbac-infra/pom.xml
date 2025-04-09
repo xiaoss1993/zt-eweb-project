@@ -31,6 +31,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <artifactId>mapstruct</artifactId>
+            <groupId>org.mapstruct</groupId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
+        </dependency>
+        <dependency>
             <groupId>com.zt.eweb</groupId>
             <artifactId>zt-eweb-mybatis-core</artifactId>
             <version>1.1.0</version>

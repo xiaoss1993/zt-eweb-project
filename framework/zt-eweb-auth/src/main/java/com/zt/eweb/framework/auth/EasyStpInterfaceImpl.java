@@ -1,12 +1,11 @@
 package com.zt.eweb.framework.auth;
 
 import cn.dev33.satoken.stp.StpInterface;
-import com.zt.eweb.modular.rbac.client.manager.UserQueryService;
+import com.zt.eweb.modular.rbac.client.user.UserQueryService;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 @Slf4j

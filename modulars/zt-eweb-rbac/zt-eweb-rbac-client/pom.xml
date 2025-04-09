@@ -29,6 +29,11 @@
         </dependency>
         <dependency>
             <groupId>com.zt.eweb</groupId>
+            <artifactId>zt-eweb-rbac-common</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zt.eweb</groupId>
             <artifactId>zt-eweb-mybatis-core</artifactId>
             <version>1.1.0</version>
         </dependency>

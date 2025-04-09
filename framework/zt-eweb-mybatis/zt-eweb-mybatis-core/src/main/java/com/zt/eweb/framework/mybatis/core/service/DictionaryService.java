@@ -11,9 +11,6 @@ import java.util.List;
 /**
  * 数据字典Service
  *
- * @author
- * @version 2.0
- * @date 2019/01/01
  */
 public interface DictionaryService extends BaseService<Dictionary> {
 
