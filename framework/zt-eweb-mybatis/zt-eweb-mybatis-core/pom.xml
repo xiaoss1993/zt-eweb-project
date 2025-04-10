@@ -27,10 +27,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <artifactId>javax.servlet-api</artifactId>
-      <groupId>javax.servlet</groupId>
-    </dependency>
-    <dependency>
       <artifactId>spring-boot</artifactId>
       <groupId>org.springframework.boot</groupId>
     </dependency>
@@ -43,6 +39,14 @@
       <groupId>org.springframework</groupId>
     </dependency>
     <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+    </dependency>
+    <dependency>
       <artifactId>jackson-databind</artifactId>
       <groupId>com.fasterxml.jackson.core</groupId>
     </dependency>
@@ -52,30 +56,30 @@
     </dependency>
     <dependency>
       <artifactId>slf4j-api</artifactId>
-        <groupId>org.slf4j</groupId>
+      <groupId>org.slf4j</groupId>
     </dependency>
-      <dependency>
-          <artifactId>mybatis-plus</artifactId>
-          <groupId>com.baomidou</groupId>
-      </dependency>
-      <dependency>
-          <groupId>com.baomidou</groupId>
-          <artifactId>mybatis-plus-extension</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>com.baomidou</groupId>
-          <artifactId>mybatis-plus-jsqlparser-4.9</artifactId>
-      </dependency>
+    <dependency>
+      <artifactId>mybatis-plus</artifactId>
+      <groupId>com.baomidou</groupId>
+    </dependency>
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-extension</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-jsqlparser-4.9</artifactId>
+    </dependency>
 
-      <dependency>
-          <artifactId>mybatis-spring</artifactId>
-          <groupId>org.mybatis</groupId>
-      </dependency>
-      <dependency>
-          <artifactId>commons-lang3</artifactId>
-          <groupId>org.apache.commons</groupId>
-      </dependency>
-      <dependency>
+    <dependency>
+      <artifactId>mybatis-spring</artifactId>
+      <groupId>org.mybatis</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>commons-lang3</artifactId>
+      <groupId>org.apache.commons</groupId>
+    </dependency>
+    <dependency>
       <artifactId>commons-io</artifactId>
       <groupId>commons-io</groupId>
     </dependency>
@@ -88,11 +92,6 @@
     <dependency>
       <artifactId>lombok</artifactId>
       <groupId>org.projectlombok</groupId>
-    </dependency>
-    <dependency>
-      <groupId>com.zt.eweb</groupId>
-      <artifactId>zt-eweb-jackson</artifactId>
-      <version>1.1.0</version>
     </dependency>
   </dependencies>
   <build>

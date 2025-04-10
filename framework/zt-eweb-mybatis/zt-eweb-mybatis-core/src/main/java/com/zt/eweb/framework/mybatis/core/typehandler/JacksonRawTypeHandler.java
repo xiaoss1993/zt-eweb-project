@@ -2,7 +2,6 @@ package com.zt.eweb.framework.mybatis.core.typehandler;
 
 import com.baomidou.mybatisplus.core.toolkit.Assert;
 import com.baomidou.mybatisplus.extension.handlers.AbstractJsonTypeHandler;
-import com.zt.eweb.framework.jackson.util.JacksonUtil;
 import java.lang.reflect.Field;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.type.JdbcType;
@@ -42,11 +41,11 @@ public class JacksonRawTypeHandler extends AbstractJsonTypeHandler<Object> {
 
     @Override
     public Object parse(String json) {
-        return JacksonUtil.toTypeBean(json, type);
+        return null;
     }
 
     @Override
     public String toJson(Object obj) {
-        return JacksonUtil.toTypeJson(obj);
+        return null;
     }
 }

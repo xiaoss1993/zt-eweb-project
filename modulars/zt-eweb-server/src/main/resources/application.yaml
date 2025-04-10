@@ -1,6 +1,6 @@
 spring:
   application:
-    name: yudao-server
+    name: eweb-server
 
   profiles:
     active: dev
@@ -76,7 +76,7 @@ mybatis-plus:
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
     banner: false # 关闭控制台的 Banner 打印
-  type-aliases-package: ${yudao.info.base-package}.module.*.dal.dataobject
+  type-aliases-package: ${eweb.info.base-package}.module.*.dal.dataobject
   encryptor:
     password: XDV71a+xqStEA3WH # 加解密的秘钥，可使用 https://www.imaegoo.com/2020/aes-key-generator/ 网站生成
 
@@ -181,7 +181,7 @@ spring:
         tongyi:
           api-key: sk-Zsd81gZYg7
 
-yudao:
+eweb:
   ai:
     deep-seek: # DeepSeek
       enable: true
@@ -206,13 +206,13 @@ yudao:
 
 --- #################### 芋道相关配置 ####################
 
-yudao:
+eweb:
   info:
     version: 1.0.0
-    base-package: cn.iocoder.yudao
+    base-package: com.zt.eweb
   web:
     admin-ui:
-      url: http://dashboard.yudao.iocoder.cn # Admin 管理后台 UI 的地址
+      url: http://dashboard.eweb.iocoder.cn # Admin 管理后台 UI 的地址
   xss:
     enable: false
     exclude-urls: # 如下两个 url，仅仅是为了演示，去掉配置也没关系
@@ -237,13 +237,13 @@ yudao:
   swagger:
     title: 芋道快速开发平台
     description: 提供管理后台、用户 App 的所有功能
-    version: ${yudao.info.version}
-    url: ${yudao.web.admin-ui.url}
+    version: ${eweb.info.version}
+    url: ${eweb.web.admin-ui.url}
     email: xingyu4j@vip.qq.com
     license: MIT
     license-url: https://gitee.com/zhijiantianya/ruoyi-vue-pro/blob/master/LICENSE
   codegen:
-    base-package: ${yudao.info.base-package}
+    base-package: ${eweb.info.base-package}
     db-schemas: ${spring.datasource.dynamic.datasource.master.name}
     front-type: 20 # 前端模版的类型，参见 CodegenFrontTypeEnum 枚举类
     unit-test-enable: false # 是否生成单元测试

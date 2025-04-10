@@ -19,12 +19,11 @@
   </properties>
 
   <dependencies>
-      <dependency>
-          <artifactId>junit</artifactId>
-          <groupId>junit</groupId>
-          <scope>test</scope>
-      </dependency>
-
+    <dependency>
+      <artifactId>junit</artifactId>
+      <groupId>junit</groupId>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>com.zt.eweb</groupId>
       <artifactId>zt-eweb-meta-common</artifactId>

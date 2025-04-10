@@ -11,7 +11,7 @@
     <artifactId>zt-eweb-rbac-adapter</artifactId>
     <packaging>jar</packaging>
 
-    <name>zt-eweb-rbac-adapter</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

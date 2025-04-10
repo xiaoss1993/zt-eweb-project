@@ -1,1 +1,1 @@
-cn.iocoder.yudao.framework.tenant.config.YudaoTenantAutoConfiguration
+com.zt.eweb.framework.tenant.config.YudaoTenantAutoConfiguration

@@ -1,2 +1,2 @@
-cn.iocoder.yudao.framework.datapermission.config.YudaoDataPermissionAutoConfiguration
-cn.iocoder.yudao.framework.datapermission.config.YudaoDeptDataPermissionAutoConfiguration
+com.zt.eweb.framework.datapermission.config.YudaoDataPermissionAutoConfiguration
+com.zt.eweb.framework.datapermission.config.YudaoDeptDataPermissionAutoConfiguration

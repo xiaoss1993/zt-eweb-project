@@ -31,11 +31,6 @@
     </dependency>
     <dependency>
       <groupId>com.zt.eweb</groupId>
-      <artifactId>zt-eweb-jackson</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.zt.eweb</groupId>
       <artifactId>zt-eweb-spring</artifactId>
       <version>1.1.0</version>
     </dependency>
@@ -57,7 +52,6 @@
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>easyexcel</artifactId>
-      <version>3.3.2</version>
     </dependency>
   </dependencies>
 </project>

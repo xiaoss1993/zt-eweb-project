@@ -1,2 +1,2 @@
-cn.iocoder.yudao.framework.redis.config.YudaoRedisAutoConfiguration
-cn.iocoder.yudao.framework.redis.config.YudaoCacheAutoConfiguration
+com.zt.eweb.framework.redis.config.YudaoRedisAutoConfiguration
+com.zt.eweb.framework.redis.config.YudaoCacheAutoConfiguration

@@ -1,1 +1,1 @@
-cn.iocoder.yudao.framework.websocket.config.YudaoWebSocketAutoConfiguration
+com.zt.eweb.framework.websocket.config.YudaoWebSocketAutoConfiguration

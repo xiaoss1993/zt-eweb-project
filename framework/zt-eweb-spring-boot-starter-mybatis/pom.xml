@@ -85,7 +85,11 @@
             <groupId>com.github.yulichang</groupId>
             <artifactId>mybatis-plus-join-boot-starter</artifactId> <!-- MyBatis 联表查询 -->
         </dependency>
-
+        <dependency>
+            <groupId>com.zt.eweb</groupId>
+            <artifactId>zt-eweb-mybatis-starter</artifactId>
+            <version>1.1.0</version>
+        </dependency>
         <dependency>
             <groupId>com.fhs-opensource</groupId> <!-- VO 数据翻译 -->
             <artifactId>easy-trans-spring-boot-starter</artifactId>
