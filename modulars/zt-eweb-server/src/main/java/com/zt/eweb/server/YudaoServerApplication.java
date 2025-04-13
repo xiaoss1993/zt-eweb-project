@@ -12,7 +12,9 @@ public class YudaoServerApplication {
 
     public static void main(String[] args) {
 
+        // 启动Spring Boot应用程序
         SpringApplication.run(YudaoServerApplication.class, args);
+//        // 使用SpringApplicationBuilder启动Spring Boot应用程序，并设置缓冲区大小
 //        new SpringApplicationBuilder(YudaoServerApplication.class)
 //                .applicationStartup(new BufferingApplicationStartup(20480))
 //                .run(args);
