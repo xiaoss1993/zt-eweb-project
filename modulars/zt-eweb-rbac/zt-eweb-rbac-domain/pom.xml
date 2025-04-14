@@ -21,11 +21,18 @@
             <groupId>junit</groupId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.zt.eweb</groupId>
-            <artifactId>zt-eweb-rbac-infra</artifactId>
-            <version>1.1.0</version>
+            <artifactId>zt-eweb-rbac-common</artifactId>
+            <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.zt.eweb</groupId>
+            <artifactId>zt-eweb-rbac-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

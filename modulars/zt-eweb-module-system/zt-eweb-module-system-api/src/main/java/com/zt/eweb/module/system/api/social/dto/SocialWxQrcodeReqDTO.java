@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 /**
  * 获取小程序码 Request DTO
  *
- * @author HUIHUI
+ * 
  * @see <a href="https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/qrcode-link/qr-code/getUnlimitedQRCode.html">获取不限制的小程序码</a>
  */
 @Data

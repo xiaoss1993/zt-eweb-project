@@ -24,6 +24,7 @@ import com.zt.eweb.framework.mybatis.core.converter.Timestamp2LocalDateTimeConve
 import com.zt.eweb.framework.mybatis.core.serial.deserializer.LocalDateTimeDeserializer;
 import com.zt.eweb.framework.mybatis.core.serial.serializer.BigDecimal2StringSerializer;
 import com.zt.eweb.framework.mybatis.core.util.D;
+
 import java.io.File;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -35,6 +36,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.TimeZone;
 import javax.annotation.Resource;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -59,106 +61,89 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Slf4j
 public class SpringMvcConfig implements WebMvcConfigurer {
 
-  @Value("${spring.jackson.date-format:" + D.FORMAT_DATETIME_Y4MDHMS + "}")
-  private String defaultDatePattern;
+    @Value("${spring.jackson.date-format:" + D.FORMAT_DATETIME_Y4MDHMS + "}")
+    private String defaultDatePattern;
 
-  @Value("${spring.jackson.time-zone:GMT+8}")
-  private String defaultTimeZone;
-
-
-  @Value("${spring.jackson.default-property-inclusion:NON_NULL}")
-  private JsonInclude.Include defaultPropertyInclusion;
-  @Resource
-  EasyConfig easyConfig;
+    @Value("${spring.jackson.time-zone:GMT+8}")
+    private String defaultTimeZone;
 
 
-  @Bean
-  @ConditionalOnMissingBean
-  public Jackson2ObjectMapperBuilderCustomizer jsonCustomizer() {
-    return builder -> {
-      // Long转换成String避免JS超长问题
-      builder.serializerByType(Long.class, ToStringSerializer.instance);
-      builder.serializerByType(Long.TYPE, ToStringSerializer.instance);
-      builder.serializerByType(BigInteger.class, ToStringSerializer.instance);
-      // BigDecimal转换成String避免JS超长问题，以及格式化数值
-      builder.serializerByType(BigDecimal.class, BigDecimal2StringSerializer.instance);
+    @Value("${spring.jackson.default-property-inclusion:NON_NULL}")
+    private JsonInclude.Include defaultPropertyInclusion;
+    @Resource
+    EasyConfig easyConfig;
 
-      // 支持java8时间类型
-      // LocalDateTime
-      DateTimeFormatter localDateTimeFormatter = DateTimeFormatter.ofPattern(
-          D.FORMAT_DATETIME_Y4MDHMS);
-      builder.serializerByType(LocalDateTime.class,
-          new LocalDateTimeSerializer(localDateTimeFormatter));
-      builder.deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer());
-      // LocalDate
-      DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern(D.FORMAT_DATE_Y4MD);
-      builder.serializerByType(LocalDate.class, new LocalDateSerializer(localDateFormatter));
-      builder.deserializerByType(LocalDate.class, new LocalDateDeserializer(localDateFormatter));
-      // LocalTime
-      DateTimeFormatter localTimeFormatter = DateTimeFormatter.ofPattern(D.FORMAT_TIME_HHmmss);
-      builder.serializerByType(LocalTime.class, new LocalTimeSerializer(localTimeFormatter));
-      builder.deserializerByType(LocalTime.class, new LocalTimeDeserializer(localTimeFormatter));
 
-      // 设置序列化包含策略
-      builder.serializationInclusion(defaultPropertyInclusion);
-      // 时间格式化
-      builder.failOnUnknownProperties(false);
-      builder.timeZone(TimeZone.getTimeZone(defaultTimeZone));
-      SimpleDateFormat dateFormat = new SimpleDateFormat(defaultDatePattern) {
-        @Override
-        public Date parse(String dateStr) {
-          return D.fuzzyConvert(dateStr);
-        }
-      };
-      builder.dateFormat(dateFormat);
-    };
-  }
+    @Bean
+    @ConditionalOnMissingBean
+    public Jackson2ObjectMapperBuilderCustomizer jsonCustomizer() {
+        return builder -> {
+            // Long转换成String避免JS超长问题
+            builder.serializerByType(Long.class, ToStringSerializer.instance);
+            builder.serializerByType(Long.TYPE, ToStringSerializer.instance);
+            builder.serializerByType(BigInteger.class, ToStringSerializer.instance);
+            // BigDecimal转换成String避免JS超长问题，以及格式化数值
+            builder.serializerByType(BigDecimal.class, BigDecimal2StringSerializer.instance);
 
-  /**
-   * 默认支持String-Date类型转换
-   *
-   * @param registry registry
-   */
-  @Override
-  public void addFormatters(FormatterRegistry registry) {
-    registry.addConverter(new Date2LocalDateConverter());
-    registry.addConverter(new Date2LocalDateTimeConverter());
-    registry.addConverter(new LocalDate2DateConverter());
-    registry.addConverter(new LocalDateTime2DateConverter());
-    registry.addConverter(new LocalDateTime2StringConverter());
-    registry.addConverter(new SqlDate2LocalDateConverter());
-    registry.addConverter(new SqlDate2LocalDateTimeConverter());
-    registry.addConverter(new String2DateConverter());
-    registry.addConverter(new String2LocalDateConverter());
-    registry.addConverter(new String2LocalDateTimeConverter());
-    registry.addConverter(new String2BooleanConverter());
-    registry.addConverter(new String2MapConverter());
-    registry.addConverter(new Timestamp2LocalDateTimeConverter());
-  }
-  /**
-   * 默认首页的设置，当输入域名是可以自动跳转到默认指定的网页
-   */
+            // 支持java8时间类型
+            // LocalDateTime
+            DateTimeFormatter localDateTimeFormatter = DateTimeFormatter.ofPattern(D.FORMAT_DATETIME_Y4MDHMS);
+            builder.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(localDateTimeFormatter));
+            builder.deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer());
+            // LocalDate
+            DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern(D.FORMAT_DATE_Y4MD);
+            builder.serializerByType(LocalDate.class, new LocalDateSerializer(localDateFormatter));
+            builder.deserializerByType(LocalDate.class, new LocalDateDeserializer(localDateFormatter));
+            // LocalTime
+            DateTimeFormatter localTimeFormatter = DateTimeFormatter.ofPattern(D.FORMAT_TIME_HHmmss);
+            builder.serializerByType(LocalTime.class, new LocalTimeSerializer(localTimeFormatter));
+            builder.deserializerByType(LocalTime.class, new LocalTimeDeserializer(localTimeFormatter));
 
-  @Override
-  public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    // 配置静态资源，自定义虚拟磁盘功能
-    File web = new File("web");
-    EasyConfig.Local local = easyConfig.getStorage().getLocal();
-    if (local.isEnable()) {
-      String path = local.getStoragePath();
-      File file = new File(path);
-      if (!file.exists()) {
-        file.mkdirs();
-      }
-      log.info(file.getAbsolutePath());
-      registry.addResourceHandler("/" + path + "/**")
-          .addResourceLocations("file:" + file.getAbsolutePath() + "/");
+            // 设置序列化包含策略
+            builder.serializationInclusion(defaultPropertyInclusion);
+            // 时间格式化
+            builder.failOnUnknownProperties(false);
+            builder.timeZone(TimeZone.getTimeZone(defaultTimeZone));
+            SimpleDateFormat dateFormat = new SimpleDateFormat(defaultDatePattern) {
+                @Override
+                public Date parse(String dateStr) {
+                    return D.fuzzyConvert(dateStr);
+                }
+            };
+            builder.dateFormat(dateFormat);
+        };
     }
 
-    registry.addResourceHandler("/admin/**")
-        .addResourceLocations("file:" + web.getAbsolutePath() + "/admin/");
+    /**
+     * 默认支持String-Date类型转换
+     *
+     * @param registry registry
+     */
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new Date2LocalDateConverter());
+        registry.addConverter(new Date2LocalDateTimeConverter());
+        registry.addConverter(new LocalDate2DateConverter());
+        registry.addConverter(new LocalDateTime2DateConverter());
+        registry.addConverter(new LocalDateTime2StringConverter());
+        registry.addConverter(new SqlDate2LocalDateConverter());
+        registry.addConverter(new SqlDate2LocalDateTimeConverter());
+        registry.addConverter(new String2DateConverter());
+        registry.addConverter(new String2LocalDateConverter());
+        registry.addConverter(new String2LocalDateTimeConverter());
+        registry.addConverter(new String2BooleanConverter());
+        registry.addConverter(new String2MapConverter());
+        registry.addConverter(new Timestamp2LocalDateTimeConverter());
+    }
 
-  }
+    /**
+     * 默认首页的设置，当输入域名是可以自动跳转到默认指定的网页
+     */
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+    }
 
 //    @Override
 //    public void addViewControllers(ViewControllerRegistry registry) {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 /**
  * 行业的 {@link IParseFunction} 实现类
  *
- * @author HUIHUI
+ * 
  */
 @Component
 @Slf4j

@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 /**
  * 岗位名字的 {@link IParseFunction} 实现类
  *
- * @author HUIHUI
+ * 
  */
 @Slf4j
 @Component
