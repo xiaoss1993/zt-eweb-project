@@ -1,3 +1,0 @@
-com.zt.eweb.framework.mq.redis.config.YudaoRedisMQProducerAutoConfiguration
-com.zt.eweb.framework.mq.redis.config.YudaoRedisMQConsumerAutoConfiguration
-com.zt.eweb.framework.mq.rabbitmq.config.YudaoRabbitMQAutoConfiguration

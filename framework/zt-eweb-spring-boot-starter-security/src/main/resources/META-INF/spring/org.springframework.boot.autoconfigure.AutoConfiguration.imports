@@ -1,3 +1,0 @@
-com.zt.eweb.framework.security.config.YudaoSecurityAutoConfiguration
-com.zt.eweb.framework.security.config.YudaoWebSecurityConfigurerAdapter
-com.zt.eweb.framework.operatelog.config.YudaoOperateLogConfiguration

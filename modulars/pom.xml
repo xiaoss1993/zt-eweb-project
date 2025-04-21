@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -7,18 +6,19 @@
         <artifactId>zt-eweb-project</artifactId>
         <version>1.1.0</version>
     </parent>
+
     <artifactId>modulars</artifactId>
     <packaging>pom</packaging>
-    <name>modulars</name>
 
+    <name>modulars</name>
+    <url>http://maven.apache.org</url>
     <modules>
-        <module>zt-eweb-rbac</module>
-        <module>zt-eweb-meta</module>
-        <module>zt-eweb-codegen</module>
-        <module>zt-eweb-module-infra</module>
-        <module>zt-eweb-module-system</module>
-        <module>zt-eweb-server</module>
+        <module>zt-eweb-modular-rbac</module>
+        <module>zt-eweb-modular-meta</module>
+        <module>zt-eweb-modular-base</module>
+        <module>zt-eweb-modular-codegen</module>
     </modules>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

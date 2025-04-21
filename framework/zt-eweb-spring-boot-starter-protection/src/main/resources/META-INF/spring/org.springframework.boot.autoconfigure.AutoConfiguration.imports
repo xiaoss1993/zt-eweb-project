@@ -1,4 +1,0 @@
-com.zt.eweb.framework.idempotent.config.YudaoIdempotentConfiguration
-com.zt.eweb.framework.lock4j.config.YudaoLock4jConfiguration
-com.zt.eweb.framework.ratelimiter.config.YudaoRateLimiterConfiguration
-com.zt.eweb.framework.signature.config.YudaoApiSignatureAutoConfiguration

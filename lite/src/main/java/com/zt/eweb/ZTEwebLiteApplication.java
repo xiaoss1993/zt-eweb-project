@@ -1,11 +1,9 @@
 package com.zt.eweb;
 
-import com.github.dadiyang.autologging.aop.annotation.EnableServiceLog;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ImportResource;
 
 /**
  * 模块名 :
@@ -23,11 +21,9 @@ import org.springframework.context.annotation.ImportResource;
  * 2025/3/15      V1.0.0  xiaoss   创建
  * ----------------------------------------------------------------
  */
-@EnableServiceLog
 @SpringBootApplication
-@MapperScan(basePackages = {"com.zt.eweb.framework.mybatis.core.mapper", "com.zt.eweb.modular.rbac.infra.dal.mapper", "com.zt.eweb.modular.binder.mapper"})
+@MapperScan(basePackages = {"com.zt.eweb.framework.mybatis.core.mapper", "com.zt.eweb.**.infrastructure.persistence.mapper"})
 public class ZTEwebLiteApplication {
-
   public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(ZTEwebLiteApplication.class, args);
         //这里可以验证一下 service 有没有成功注入

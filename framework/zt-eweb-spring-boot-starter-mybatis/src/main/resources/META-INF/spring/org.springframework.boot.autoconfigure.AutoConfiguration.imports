@@ -1,3 +1,0 @@
-com.zt.eweb.framework.datasource.config.YudaoDataSourceAutoConfiguration
-com.zt.eweb.framework.mybatis.config.YudaoMybatisAutoConfiguration
-com.zt.eweb.framework.translate.config.YudaoTranslateAutoConfiguration

@@ -1,6 +1,0 @@
-com.zt.eweb.framework.apilog.config.YudaoApiLogAutoConfiguration
-com.zt.eweb.framework.jackson.config.YudaoJacksonAutoConfiguration
-com.zt.eweb.framework.swagger.config.YudaoSwaggerAutoConfiguration
-com.zt.eweb.framework.web.config.YudaoWebAutoConfiguration
-com.zt.eweb.framework.xss.config.YudaoXssAutoConfiguration
-com.zt.eweb.framework.banner.config.YudaoBannerAutoConfiguration

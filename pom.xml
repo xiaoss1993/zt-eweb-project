@@ -18,7 +18,6 @@
         <module>framework</module>
         <module>lite</module>
         <module>modulars</module>
-        <module>gateway</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -55,9 +54,9 @@
             </properties>
         </profile>
         <profile>
-            <id>prod</id>
+            <id>ds</id>
             <properties>
-                <spring.active>prod</spring.active>
+                <spring.active>ds</spring.active>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -65,23 +64,6 @@
         </profile>
     </profiles>
     <build>
-        <!--这里一定要引入，否则就会报@符号设置错误-->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

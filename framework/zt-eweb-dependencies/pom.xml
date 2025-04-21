@@ -94,6 +94,7 @@
         <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
         <netty.version>4.1.116.Final</netty.version>
         <mqtt.version>1.2.5</mqtt.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
 
         <!-- 三方云服务相关 -->
         <aws-java-sdk-s3.version>1.12.777</aws-java-sdk-s3.version>
@@ -790,6 +791,11 @@
                 <groupId>org.checkerframework</groupId>
                 <artifactId>checker-qual</artifactId>
                 <version>3.43.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.axet</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

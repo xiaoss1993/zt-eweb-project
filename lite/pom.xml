@@ -31,20 +31,34 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!--    <dependency>-->
-        <!--      <groupId>com.github.gavlyukovskiy</groupId>-->
-        <!--      <artifactId>p6spy-spring-boot-starter</artifactId>-->
-        <!--      <version>1.8.0</version> &lt;!&ndash; 确认版本兼容性 &ndash;&gt;-->
-        <!--    </dependency>-->
         <dependency>
-            <groupId>com.zt.eweb</groupId>
-            <artifactId>zt-eweb-mybatis-core</artifactId>
-            <version>1.1.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.zt.eweb</groupId>
-            <artifactId>zt-eweb-commons</artifactId>
-            <version>1.1.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!-- 配 置 元 数 据 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
         </dependency>
         <dependency>
             <groupId>com.zt.eweb</groupId>
@@ -55,56 +69,6 @@
             <groupId>com.zt.eweb</groupId>
             <artifactId>zt-eweb-rbac-app</artifactId>
             <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zt.eweb</groupId>
-            <artifactId>zt-eweb-meta-adapter</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zt.eweb</groupId>
-            <artifactId>zt-eweb-meta-app</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zt.eweb</groupId>
-            <artifactId>zt-eweb-codegen-adapter</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zt.eweb</groupId>
-            <artifactId>zt-eweb-codegen-app</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.3.146</version>
-        </dependency>
-        <!-- plumelog -->
-        <dependency>
-            <groupId>com.plumelog</groupId>
-            <artifactId>plumelog-lite-spring-boot-starter</artifactId>
-            <version>3.5.3</version>
-        </dependency>
-
-        <!--easypoi-->
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-base</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-annotation</artifactId>
         </dependency>
     </dependencies>
     <profiles>
@@ -124,6 +88,22 @@
     <build>
         <!-- 设置构建的 jar 包名 -->
         <finalName>${project.artifactId}</finalName>
+        <resources>
+            <!-- 加载 .Java 下的 XML 文件 -->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <!-- 加载 .resources 下的 资源文件 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <!-- 打包 -->
             <plugin>
