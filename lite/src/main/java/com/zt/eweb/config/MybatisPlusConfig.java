@@ -1,4 +1,4 @@
-package com.zt.eweb.framework.common.utils.mybatis;
+package com.zt.eweb.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;

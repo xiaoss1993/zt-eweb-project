@@ -1,9 +1,11 @@
-package com.zt.eweb.rbac.adapter.web.controller.rbac;
+package com.zt.eweb.rbac.adapter.controller.rbac;
 
 import com.zt.eweb.framework.common.utils.CommonConstant;
 import com.zt.eweb.framework.common.utils.Page;
 import com.zt.eweb.framework.common.utils.validator.ValidatorUtils;
-import com.zt.eweb.rbac.adapter.web.util.log.SysLog;
+import com.zt.eweb.rbac.adapter.common.AbstractController;
+import com.zt.eweb.rbac.adapter.common.Result;
+import com.zt.eweb.rbac.adapter.util.log.SysLog;
 import com.zt.eweb.rbac.client.RoleApplicationService;
 import com.zt.eweb.rbac.client.RoleQueryService;
 import com.zt.eweb.rbac.client.command.RoleCommand;
@@ -11,8 +13,6 @@ import com.zt.eweb.rbac.client.dto.RoleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.zt.eweb.rbac.adapter.web.common.AbstractController;
-import com.zt.eweb.rbac.adapter.web.common.Result;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +24,7 @@ import java.util.Map;
  * @date 2021-02-18
  **/
 @RestController
-@RequestMapping("/sys/role")
+@RequestMapping("/rbac/role")
 public class RoleController extends AbstractController {
 
     @Autowired

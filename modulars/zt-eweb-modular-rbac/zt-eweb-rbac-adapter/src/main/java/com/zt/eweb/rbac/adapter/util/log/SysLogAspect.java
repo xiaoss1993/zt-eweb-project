@@ -1,4 +1,4 @@
-package com.zt.eweb.rbac.adapter.web.util.log;
+package com.zt.eweb.rbac.adapter.util.log;
 
 import com.google.gson.Gson;
 import com.zt.eweb.framework.common.utils.HttpContextUtils;
@@ -34,7 +34,7 @@ public class SysLogAspect {
     @Autowired
     private LogRepository logRepository;
 
-    @Pointcut("@annotation(com.zt.eweb.rbac.adapter.web.util.log.SysLog)")
+    @Pointcut("@annotation(com.zt.eweb.rbac.adapter.util.log.SysLog)")
     public void logPointCut() {
 
     }

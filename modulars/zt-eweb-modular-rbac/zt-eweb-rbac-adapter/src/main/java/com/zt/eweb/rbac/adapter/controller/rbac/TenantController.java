@@ -1,11 +1,11 @@
-package com.zt.eweb.rbac.adapter.web.controller.rbac;
+package com.zt.eweb.rbac.adapter.controller.rbac;
 
 
 import com.zt.eweb.framework.common.utils.CommonConstant;
 import com.zt.eweb.framework.common.utils.Page;
-import com.zt.eweb.rbac.adapter.web.common.AbstractController;
-import com.zt.eweb.rbac.adapter.web.common.Result;
-import com.zt.eweb.rbac.adapter.web.util.log.SysLog;
+import com.zt.eweb.rbac.adapter.common.Result;
+import com.zt.eweb.rbac.adapter.common.AbstractController;
+import com.zt.eweb.rbac.adapter.util.log.SysLog;
 import com.zt.eweb.rbac.client.TenantApplicationService;
 import com.zt.eweb.rbac.client.TenantQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import java.util.Map;
  * @date 2021-02-24
  **/
 @RestController
-@RequestMapping("/sys/tenant")
+@RequestMapping("/rbac/tenant")
 public class TenantController extends AbstractController {
 
     @Autowired

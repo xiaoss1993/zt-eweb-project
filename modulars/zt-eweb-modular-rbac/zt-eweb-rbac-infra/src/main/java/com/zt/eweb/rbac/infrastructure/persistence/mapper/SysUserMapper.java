@@ -1,8 +1,8 @@
 package com.zt.eweb.rbac.infrastructure.persistence.mapper;
 
 import com.baomidou.mybatisplus.annotation.InterceptorIgnore;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.zt.eweb.framework.mybatis.core.mapper.BaseCrudMapper;
 import com.zt.eweb.rbac.infrastructure.persistence.entity.SysUserDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,7 +17,7 @@ import java.util.Map;
  * @date 2021-01-23
  **/
 @Mapper
-public interface SysUserMapper extends BaseMapper<SysUserDO> {
+public interface SysUserMapper extends BaseCrudMapper<SysUserDO> {
 
     /**
      * 分页查询

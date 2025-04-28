@@ -1,11 +1,11 @@
-package com.zt.eweb.rbac.adapter.web.controller.rbac;
+package com.zt.eweb.rbac.adapter.controller.rbac;
 
-import com.zt.eweb.rbac.adapter.web.common.AbstractController;
-import com.zt.eweb.rbac.adapter.web.common.Result;
+import com.zt.eweb.rbac.adapter.common.AbstractController;
+import com.zt.eweb.rbac.adapter.common.Result;
 import com.zt.eweb.framework.common.utils.validator.ValidatorUtils;
 import com.zt.eweb.framework.common.utils.validator.group.AddGroup;
 import com.zt.eweb.framework.common.utils.validator.group.UpdateGroup;
-import com.zt.eweb.rbac.adapter.web.util.log.SysLog;
+import com.zt.eweb.rbac.adapter.util.log.SysLog;
 import com.zt.eweb.rbac.client.PermissionApplicationService;
 import com.zt.eweb.rbac.client.PermissionQueryService;
 import com.zt.eweb.rbac.client.command.PermissionCommand;
@@ -23,7 +23,7 @@ import java.util.Set;
  * @date 2021-02-16
  **/
 @RestController
-@RequestMapping("/sys/permission")
+@RequestMapping("/rbac/permission")
 public class PermissionController extends AbstractController {
 
     @Autowired

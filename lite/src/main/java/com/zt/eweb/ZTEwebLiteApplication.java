@@ -22,7 +22,8 @@ import org.springframework.context.ConfigurableApplicationContext;
  * ----------------------------------------------------------------
  */
 @SpringBootApplication
-@MapperScan(basePackages = {"com.zt.eweb.framework.mybatis.core.mapper", "com.zt.eweb.**.infrastructure.persistence.mapper"})
+
+@MapperScan(basePackages = {"com.zt.eweb.rbac.infrastructure.persistence.mapper"})
 public class ZTEwebLiteApplication {
   public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(ZTEwebLiteApplication.class, args);

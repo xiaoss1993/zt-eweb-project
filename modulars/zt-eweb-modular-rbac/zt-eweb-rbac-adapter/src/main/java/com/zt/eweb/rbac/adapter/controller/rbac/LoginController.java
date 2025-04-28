@@ -1,11 +1,11 @@
-package com.zt.eweb.rbac.adapter.web.controller.rbac;
+package com.zt.eweb.rbac.adapter.controller.rbac;
 
 import com.zt.eweb.framework.common.utils.CommonConstant;
 import com.zt.eweb.framework.common.utils.redis.RedisUtils;
 import com.zt.eweb.framework.common.utils.validator.ValidatorUtils;
-import com.zt.eweb.rbac.adapter.web.common.AbstractController;
-import com.zt.eweb.rbac.adapter.web.common.Result;
-import com.zt.eweb.rbac.adapter.web.util.log.SysLog;
+import com.zt.eweb.rbac.adapter.common.AbstractController;
+import com.zt.eweb.rbac.adapter.common.Result;
+import com.zt.eweb.rbac.adapter.util.log.SysLog;
 import com.zt.eweb.rbac.client.AuthenticationApplicationService;
 import com.zt.eweb.rbac.client.command.AccountLoginCommand;
 import com.zt.eweb.rbac.client.command.MobileLoginCommand;
@@ -57,7 +57,7 @@ public class LoginController extends AbstractController {
      * 账号登录
      */
     @SysLog("账号登录")
-    @PostMapping("/sys/loginByAccount")
+    @PostMapping("/rbac/loginByAccount")
     public Result loginByAccount(@RequestBody AccountLoginCommand accountLoginCommand) {
         ValidatorUtils.validateEntity(accountLoginCommand);
         LoginSuccessDTO loginSuccessDTO = authenticationApplicationService.loginByAccount(accountLoginCommand);
@@ -69,7 +69,7 @@ public class LoginController extends AbstractController {
      * 手机号登录
      */
     @SysLog("手机号登录")
-    @PostMapping("/sys/loginByMobile")
+    @PostMapping("/rbac/loginByMobile")
     public Result loginByMobile(@RequestBody MobileLoginCommand mobileLoginCommand) {
         ValidatorUtils.validateEntity(mobileLoginCommand);
         String verificationCodeRedis = redisUtils.get(CommonConstant.REDIS_PHONE_CODE + mobileLoginCommand.getMobile());
@@ -82,7 +82,7 @@ public class LoginController extends AbstractController {
      * 退出
      */
     @SysLog("退出")
-    @PostMapping("/sys/logout")
+    @PostMapping("/rbac/logout")
     public Result logout() {
         authenticationApplicationService.logout(getUser().getId());
         return Result.ok();

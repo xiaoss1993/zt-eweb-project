@@ -1,4 +1,4 @@
-package com.zt.eweb.rbac.adapter.web.common;
+package com.zt.eweb.rbac.adapter.common;
 
 import lombok.Data;
 

@@ -2,33 +2,15 @@
 package com.zt.eweb.framework.mybatis.starter;
 
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
-import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.zt.eweb.framework.mybatis.core.converter.Date2LocalDateConverter;
-import com.zt.eweb.framework.mybatis.core.converter.Date2LocalDateTimeConverter;
-import com.zt.eweb.framework.mybatis.core.converter.LocalDate2DateConverter;
-import com.zt.eweb.framework.mybatis.core.converter.LocalDateTime2DateConverter;
-import com.zt.eweb.framework.mybatis.core.converter.LocalDateTime2StringConverter;
-import com.zt.eweb.framework.mybatis.core.converter.SqlDate2LocalDateConverter;
-import com.zt.eweb.framework.mybatis.core.converter.SqlDate2LocalDateTimeConverter;
-import com.zt.eweb.framework.mybatis.core.converter.String2BooleanConverter;
-import com.zt.eweb.framework.mybatis.core.converter.String2DateConverter;
-import com.zt.eweb.framework.mybatis.core.converter.String2ListConverter;
-import com.zt.eweb.framework.mybatis.core.converter.String2LocalDateConverter;
-import com.zt.eweb.framework.mybatis.core.converter.String2LocalDateTimeConverter;
-import com.zt.eweb.framework.mybatis.core.converter.String2MapConverter;
-import com.zt.eweb.framework.mybatis.core.converter.Timestamp2LocalDateTimeConverter;
+import com.zt.eweb.framework.mybatis.core.converter.*;
 import com.zt.eweb.framework.mybatis.core.data.protect.DataEncryptHandler;
 import com.zt.eweb.framework.mybatis.core.data.protect.DataMaskHandler;
 import com.zt.eweb.framework.mybatis.core.data.protect.DefaultDataEncryptHandler;
 import com.zt.eweb.framework.mybatis.core.data.protect.DefaultDataMaskHandler;
-import com.zt.eweb.framework.mybatis.core.interceptor.MpInterceptor;
 import com.zt.eweb.framework.mybatis.core.util.D;
-import java.util.Comparator;
-import java.util.List;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.LocalDateTypeHandler;
-import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,7 +34,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableAsync
 @Configuration
 @ComponentScan(basePackages = {"com.zt.eweb.framework.mybatis.core"})
-@MapperScan(basePackages = {"com.zt.eweb.framework.mybatis.core.mapper"})
 public class CoreAutoConfig implements WebMvcConfigurer {
 
   private static final Logger log = LoggerFactory.getLogger(CoreAutoConfig.class);

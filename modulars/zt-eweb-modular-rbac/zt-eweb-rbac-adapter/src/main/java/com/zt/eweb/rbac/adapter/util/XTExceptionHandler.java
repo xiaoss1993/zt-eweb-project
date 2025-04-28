@@ -1,7 +1,7 @@
-package com.zt.eweb.rbac.adapter.web.util;
+package com.zt.eweb.rbac.adapter.util;
 
 import com.zt.eweb.framework.common.exception.XTException;
-import com.zt.eweb.rbac.adapter.web.common.Result;
+import com.zt.eweb.rbac.adapter.common.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;

@@ -1,20 +1,20 @@
-package com.zt.eweb.rbac.adapter.web.controller.rbac;
+package com.zt.eweb.rbac.adapter.controller.rbac;
 
 
-import com.zt.eweb.framework.common.utils.CommonConstant;
 import com.zt.eweb.framework.common.utils.Page;
 import com.zt.eweb.framework.common.utils.validator.ValidatorUtils;
 import com.zt.eweb.framework.common.utils.validator.group.AddGroup;
 import com.zt.eweb.framework.common.utils.validator.group.UpdateGroup;
-import com.zt.eweb.rbac.adapter.web.util.log.SysLog;
+import com.zt.eweb.rbac.adapter.common.AbstractController;
+import com.zt.eweb.rbac.adapter.common.Result;
+import com.zt.eweb.rbac.adapter.util.log.SysLog;
 import com.zt.eweb.rbac.client.UserApplicationService;
 import com.zt.eweb.rbac.client.UserQueryService;
 import com.zt.eweb.rbac.client.command.PasswordCommand;
 import com.zt.eweb.rbac.client.command.UserCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.zt.eweb.rbac.adapter.web.common.AbstractController;
-import com.zt.eweb.rbac.adapter.web.common.Result;
+
 import java.util.Arrays;
 import java.util.Map;
 
@@ -25,7 +25,7 @@ import java.util.Map;
  * @date 2021-02-20
  **/
 @RestController
-@RequestMapping("/sys/user")
+@RequestMapping("/rbac/user")
 public class UserController extends AbstractController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class UserController extends AbstractController {
     @GetMapping("/list")
     public Result list(@RequestParam Map<String, Object> params){
         Page page = userQueryService.queryPage(params);
-        return Result.ok().put(CommonConstant.PAGE, page);
+        return Result.ok().put("data", page.getList());
     }
 
     /**

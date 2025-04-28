@@ -1,4 +1,4 @@
-package com.zt.eweb.rbac.adapter.web.util.log;
+package com.zt.eweb.rbac.adapter.util.log;
 
 import java.lang.annotation.*;
 

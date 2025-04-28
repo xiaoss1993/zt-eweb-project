@@ -287,7 +287,7 @@
 				"icon": "layui-icon layui-icon-face-smile",
 				"type": 1,
 				"openType": "_iframe",
-				"href": "view/system/user.html"
+				"href": "/rbac/user"
 			},
 			{
 				"id": 602,
@@ -295,7 +295,7 @@
 				"icon": "layui-icon layui-icon-face-cry",
 				"type": 1,
 				"openType": "_iframe",
-				"href": "view/system/role.html"
+				"href": "/rbac/role"
 			},
 
 			{
@@ -304,7 +304,7 @@
 				"icon": "layui-icon layui-icon-face-cry",
 				"type": 1,
 				"openType": "_iframe",
-				"href": "view/system/power.html"
+				"href": "/rbac/permission"
 			},
 
 			{
@@ -313,7 +313,7 @@
 				"icon": "layui-icon layui-icon-face-cry",
 				"type": 1,
 				"openType": "_iframe",
-				"href": "view/system/deptment.html"
+				"href": "/rbac/deptment"
 			},
 			{
 				"id": 605,
@@ -321,14 +321,14 @@
 				"icon": "layui-icon layui-icon-face-cry",
 				"type": 1,
 				"openType": "_iframe",
-				"href": "view/system/logging.html"
+				"href": "/rbac/logging"
 			}, {
 				"id": 606,
 				"title": "数据字典",
 				"icon": "layui-icon layui-icon-face-cry",
 				"type": 1,
 				"openType": "_iframe",
-				"href": "view/system/dict.html"
+				"href": "/rbac/dict.html"
 			}
 
 		]
