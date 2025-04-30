@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * 密码
  *
- * @author haoxin
+ * 
  * @date 2021-02-08
  **/
 public class Password implements ValueObject<Password> {

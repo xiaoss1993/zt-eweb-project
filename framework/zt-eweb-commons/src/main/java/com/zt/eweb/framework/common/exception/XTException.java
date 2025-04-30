@@ -3,7 +3,7 @@ package com.zt.eweb.framework.common.exception;
 /**
  * 自定义异常
  *
- * @author haoxin
+ * 
  * @date 2021-02-02
  **/
 public class XTException extends RuntimeException {

@@ -6,7 +6,7 @@ import com.zt.eweb.rbac.domain.model.user.User;
 /**
  * 账号登录Specification
  *
- * @author haoxin
+ * 
  * @date 2021-02-20
  **/
 public class LoginByAccountSpecification extends AbstractSpecification<User> {

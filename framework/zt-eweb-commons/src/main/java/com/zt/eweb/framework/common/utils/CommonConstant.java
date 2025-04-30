@@ -3,7 +3,7 @@ package com.zt.eweb.framework.common.utils;
 /**
  * 公共常量
  *
- * @author haoxin
+ * 
  * @date 2021-01-25
  **/
 public interface CommonConstant {

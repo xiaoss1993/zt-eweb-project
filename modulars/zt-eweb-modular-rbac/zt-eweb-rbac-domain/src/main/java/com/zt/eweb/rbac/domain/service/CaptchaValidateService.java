@@ -8,7 +8,7 @@ import com.zt.eweb.rbac.domain.model.captcha.Uuid;
 /**
  * 验证码校验服务
  *
- * @author haoxin
+ * 
  * @date 2021-05-11
  **/
 public class CaptchaValidateService {

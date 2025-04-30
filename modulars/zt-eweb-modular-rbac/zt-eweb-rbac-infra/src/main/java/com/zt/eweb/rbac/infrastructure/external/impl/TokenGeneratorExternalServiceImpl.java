@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * 生成Token外部实现类
  *
- * @author haoxin
+ * 
  * @date 2021-04-23
  **/
 @Component

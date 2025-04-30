@@ -6,7 +6,7 @@ import com.zt.eweb.rbac.client.dto.LoginSuccessDTO;
 /**
  * Assembler class for the LoginSuccessDTOAssembler.
  *
- * @author haoxin
+ *
  * @date 2021-02-09
  **/
 public class LoginSuccessDTOAssembler {

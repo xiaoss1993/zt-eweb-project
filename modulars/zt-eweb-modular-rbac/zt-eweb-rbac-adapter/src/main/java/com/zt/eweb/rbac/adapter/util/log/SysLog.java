@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * 系统日志注解
  *
- * @author haoxin
+ *
  * @date 2021-02-02
  **/
 @Target(ElementType.METHOD)

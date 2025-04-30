@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 /**
  * 账号名登录Command
  *
- * @author haoxin
+ * 
  * @date 2021-02-08
  **/
 @Data

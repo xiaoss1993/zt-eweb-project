@@ -8,10 +8,18 @@
     </parent>
 
     <artifactId>zt-eweb-modular-meta</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>zt-eweb-modular-meta</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>zt-eweb-meta-adapter</module>
+        <module>zt-eweb-meta-client</module>
+        <module>zt-eweb-meta-app</module>
+        <module>zt-eweb-meta-common</module>
+        <module>zt-eweb-meta-domain</module>
+        <module>zt-eweb-meta-infra</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

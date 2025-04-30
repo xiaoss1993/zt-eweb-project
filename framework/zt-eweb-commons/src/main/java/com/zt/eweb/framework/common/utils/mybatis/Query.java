@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 查询参数
  *
- * @author haoxin
+ * 
  * @date 2021-02-02
  **/
 public class Query<T> {

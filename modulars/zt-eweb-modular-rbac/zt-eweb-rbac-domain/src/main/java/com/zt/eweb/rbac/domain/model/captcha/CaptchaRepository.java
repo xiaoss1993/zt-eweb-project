@@ -3,7 +3,7 @@ package com.zt.eweb.rbac.domain.model.captcha;
 /**
  * 验证码Repository
  *
- * @author haoxin
+ * 
  * @date 2021-05-10
  **/
 public interface CaptchaRepository {

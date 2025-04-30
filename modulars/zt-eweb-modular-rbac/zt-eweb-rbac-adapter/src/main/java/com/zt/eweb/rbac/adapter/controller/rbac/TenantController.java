@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * 租户Controller
  *
- * @author haoxin
+ *
  * @date 2021-02-24
  **/
 @RestController

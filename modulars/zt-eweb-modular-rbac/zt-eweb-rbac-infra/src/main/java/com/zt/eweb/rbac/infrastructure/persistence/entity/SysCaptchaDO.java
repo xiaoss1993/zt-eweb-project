@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * 系统验证码DO
  *
- * @author haoxin
+ * 
  * @date 2021-02-02
  **/
 @Data

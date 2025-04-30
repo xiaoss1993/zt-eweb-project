@@ -5,7 +5,7 @@ import com.zt.eweb.framework.common.domain.Entity;
 /**
  * 账号
  *
- * @author haoxin
+ * 
  * @date 2021-02-21
  **/
 public class Account implements Entity<Account> {

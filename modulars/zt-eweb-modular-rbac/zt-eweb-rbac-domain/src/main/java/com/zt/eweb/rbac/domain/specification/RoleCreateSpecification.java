@@ -7,7 +7,7 @@ import com.zt.eweb.rbac.domain.model.role.RoleRepository;
 /**
  * 角色创建Specification
  *
- * @author haoxin
+ *
  * @date 2021-02-20
  **/
 public class RoleCreateSpecification extends AbstractSpecification<Role> {

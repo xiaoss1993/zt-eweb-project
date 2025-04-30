@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 通用Controller
  *
- * @author haoxin
+ *
  * @date 2021-02-04
  **/
 public abstract class AbstractController {

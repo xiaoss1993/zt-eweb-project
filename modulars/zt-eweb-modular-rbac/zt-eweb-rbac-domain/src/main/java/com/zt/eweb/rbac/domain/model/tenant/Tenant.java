@@ -7,7 +7,7 @@ import com.zt.eweb.rbac.domain.model.user.UserId;
 /**
  * 租户实体
  *
- * @author haoxin
+ * 
  * @date 2021-02-08
  **/
 public class Tenant implements Entity<Tenant> {

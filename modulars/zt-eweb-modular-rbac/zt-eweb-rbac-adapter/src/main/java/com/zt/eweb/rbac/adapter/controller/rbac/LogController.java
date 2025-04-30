@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * 系统日志Controller
  *
- * @author haoxin
+ *
  * @date 2021-02-04
  **/
 @RestController

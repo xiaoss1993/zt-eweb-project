@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * token值对象
  *
- * @author haoxin
+ * 
  * @date 2021-02-02
  **/
 public final class Token implements ValueObject<Token> {

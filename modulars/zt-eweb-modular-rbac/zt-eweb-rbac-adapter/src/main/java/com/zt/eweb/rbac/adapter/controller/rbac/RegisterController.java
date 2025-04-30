@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 注册Controller
  *
- * @author haoxin
+ *
  * @date 2021-02-13
  **/
 @RestController

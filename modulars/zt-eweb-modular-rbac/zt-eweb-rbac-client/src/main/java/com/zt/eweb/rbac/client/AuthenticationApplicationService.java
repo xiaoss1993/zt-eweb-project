@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 /**
  * 身份验证应用服务接口
  *
- * @author haoxin
+ *
  * @date 2021-05-10
  **/
 public interface AuthenticationApplicationService {

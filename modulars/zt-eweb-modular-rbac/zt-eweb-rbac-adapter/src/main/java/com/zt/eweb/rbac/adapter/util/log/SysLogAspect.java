@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 /**
  * 系统日志，切面处理类
  *
- * @author haoxin
+ * 
  * @date 2021-02-02
  **/
 @Aspect

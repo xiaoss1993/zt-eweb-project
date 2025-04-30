@@ -6,7 +6,7 @@ import org.apache.commons.lang.StringUtils;
 /**
  * SQL过滤
  *
- * @author haoxin
+ * 
  * @date 2021-02-02
  **/
 public class SQLFilter {

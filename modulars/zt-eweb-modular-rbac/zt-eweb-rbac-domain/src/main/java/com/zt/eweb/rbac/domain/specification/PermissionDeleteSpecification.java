@@ -8,7 +8,7 @@ import com.zt.eweb.rbac.domain.model.permission.PermissionRepository;
 /**
  * 权限删除Specification
  *
- * @author haoxin
+ *
  * @date 2021-02-20
  **/
 public class PermissionDeleteSpecification extends AbstractSpecification<PermissionId> {

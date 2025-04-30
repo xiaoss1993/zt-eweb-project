@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * 登录Controller
  *
- * @author haoxin
+ *
  * @date 2021-02-08
  **/
 @RestController

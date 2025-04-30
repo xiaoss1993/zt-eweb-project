@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 登录成功DTO
  *
- * @author haoxin
+ * 
  * @date 2021-02-09
  **/
 public class LoginSuccessDTO implements Serializable {
