@@ -10,10 +10,6 @@
         <relativePath/>
     </parent>
     <artifactId>zt-eweb-project</artifactId>
-    <version>1.1.0</version>
-    <description>
-
-    </description>
     <modules>
         <module>framework</module>
         <module>lite</module>
@@ -90,6 +86,23 @@
                             <version>${mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- 指定入口函数 -->
+                            <mainClass>com.yh.main.HelloMavenJar</mainClass>
+                            <!-- 是否添加依赖的jar路径配置 -->
+                            <addClasspath>true</addClasspath>
+                            <!-- 依赖的jar包存放位置，和生成的jar放在同一级目录下 -->
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
             <!-- 打包时跳过测试 -->

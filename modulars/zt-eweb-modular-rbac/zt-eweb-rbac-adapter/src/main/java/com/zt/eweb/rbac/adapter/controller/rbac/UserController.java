@@ -21,7 +21,6 @@ import java.util.Map;
 /**
  * 用户Controller
  *
- *
  * @date 2021-02-20
  **/
 @RestController
@@ -34,20 +33,34 @@ public class UserController extends AbstractController {
     @Autowired
     private UserQueryService userQueryService;
 
+
     /**
      * 用户分页查询
      */
     @GetMapping("/list")
-    public Result list(@RequestParam Map<String, Object> params){
-        Page page = userQueryService.queryPage(params);
-        return Result.ok().put("data", page.getList());
+    public Result list(@RequestParam Map<String, Object> params) {
+        // 验证参数是否为空
+        if (params == null || params.isEmpty()) {
+            return Result.error("参数不能为空");
+        }
+
+        // 验证分页参数
+        Integer page = (Integer) params.get("page");
+        Integer limit = (Integer) params.get("limit");
+        if (page == null || limit == null || page <= 0 || limit <= 0) {
+            return Result.error("分页参数错误");
+        }
+
+        // 执行分页查询
+        Page userPage = userQueryService.queryPage(params);
+        return Result.ok().put("data", userPage.getList());
     }
 
     /**
      * 获取登录的用户信息
      */
     @GetMapping("/info")
-    public Result info(){
+    public Result info() {
         return Result.ok().put("user", getUser());
     }
 
@@ -56,7 +69,7 @@ public class UserController extends AbstractController {
      */
     @SysLog("修改密码")
     @PostMapping("/password")
-    public Result changePassword(@RequestBody PasswordCommand passwordCommand){
+    public Result changePassword(@RequestBody PasswordCommand passwordCommand) {
         ValidatorUtils.validateEntity(passwordCommand);
         passwordCommand.setUserId(getUser().getId());
         userApplicationService.changePassword(passwordCommand);
@@ -67,7 +80,7 @@ public class UserController extends AbstractController {
      * 用户信息
      */
     @GetMapping("/info/{id}")
-    public Result info(@PathVariable("id") String id){
+    public Result info(@PathVariable("id") String id) {
         return Result.ok().put("user", userQueryService.find(id));
     }
 
@@ -76,7 +89,7 @@ public class UserController extends AbstractController {
      */
     @SysLog("保存用户")
     @PostMapping("/save")
-    public Result save(@RequestBody UserCommand userCommand){
+    public Result save(@RequestBody UserCommand userCommand) {
         ValidatorUtils.validateEntity(userCommand, AddGroup.class);
         userApplicationService.save(userCommand);
         return Result.ok();
@@ -87,7 +100,7 @@ public class UserController extends AbstractController {
      */
     @SysLog("修改用户")
     @PostMapping("/update")
-    public Result update(@RequestBody UserCommand userCommand){
+    public Result update(@RequestBody UserCommand userCommand) {
         ValidatorUtils.validateEntity(userCommand, UpdateGroup.class);
         userApplicationService.update(userCommand);
         return Result.ok();
@@ -98,7 +111,7 @@ public class UserController extends AbstractController {
      */
     @SysLog("删除用户")
     @PostMapping("/delete")
-    public Result delete(@RequestBody String[] userIds){
+    public Result delete(@RequestBody String[] userIds) {
         userApplicationService.deleteBatch(Arrays.asList(userIds));
         return Result.ok();
     }
@@ -108,7 +121,7 @@ public class UserController extends AbstractController {
      */
     @SysLog("禁用用户")
     @PostMapping("/disable/{id}")
-    public Result disable(@PathVariable("id") String id){
+    public Result disable(@PathVariable("id") String id) {
         userApplicationService.disable(id);
         return Result.ok();
     }

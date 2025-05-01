@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2025/4/22 08:39
  */
 @Controller
-@RequestMapping(value = "/rbac/permission")
+@RequestMapping(value = "/rbac/tenant")
 public class TenantWebController {
     private static final String  prefix ="/rbac/role";
 
