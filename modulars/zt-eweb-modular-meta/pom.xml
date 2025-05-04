@@ -19,6 +19,7 @@
         <module>zt-eweb-meta-common</module>
         <module>zt-eweb-meta-domain</module>
         <module>zt-eweb-meta-infra</module>
+        <module>zt-eweb-meta-api</module>
     </modules>
 
     <properties>

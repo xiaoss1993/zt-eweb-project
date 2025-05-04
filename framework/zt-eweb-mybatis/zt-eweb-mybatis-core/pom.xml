@@ -103,7 +103,7 @@
           <target>8</target>
         </configuration>
         <groupId>org.apache.maven.plugins</groupId>
-        <version>3.8.1</version>
+
       </plugin>
     </plugins>
     <resources>
